@@ -1,21 +1,21 @@
 
 # Candidates Python
 ## Background
-This code is all about protein records held in the UniProt Knowledgebase (UniProtKB) which is the main international database of proteins, and is a collaboration between the European Bioinformatics Institute (EBI), the Swiss Institute for Bioinformatics (SIB) and the Protein Information Resource at Gerogertown University (PIR).
+This code is all about protein records held in the UniProt Knowledgebase (UniProtKB) which is the main international database of proteins, and is a collaboration between the European Bioinformatics Institute (EBI), the Swiss Institute for Bioinformatics (SIB) and the Protein Information Resource at Georgertown University (PIR).
 
 There are a lot of records in the database (180 million), most of which are simply proteins predicted to exist because protein coding genes have been detected in DNA sequences with the help of bioinformatics software.
 
-For a small proportion of the records (550k), there is good data on their functional properties. Some have been carefully experimentally characterised, the protein has been isolated and a protein structure determined. Others have very close sequence similarity to the proteins whose function is understood, so their function can be assigned with confidence.
+For a small proportion of the records (550k), there is good data on their functional properties. Some have been carefully experimentally characterised, the protein has been isolated and a protein structure determined. Others have very close sequence similarity to proteins whose function is understood, so their function can be assigned with confidence.
 
-A big part of the management of UniProtKB is providing descriptions of the function and properties of the 179.5 million uncharacterised proteins. Essentially this is a data-mining excercise, in which sequence patterns and features in the proteins are used to categorise the proteins of known function, after which this functional information is propagated to proteins of unknown function which share the same sequence features.
+A big part of the management of UniProtKB is providing descriptions of the function and properties of the 179.5 million uncharacterised proteins. Essentially this is a data-mining exercise, in which sequence patterns and features in the proteins are used to categorise the proteins of known function, after which functional information is propagated to proteins of unknown function which share the same sequence features.
 
-InterPro is the database that holds the information on all these sequence features, commonly called signatures. Many research groups contribute to InterPro by creating signatures, and InterPro organises their contributions into a coherent database by grouping signatures from different researchers that recognise the same sets of proteins into one group identified by a unique InterPro id.
+InterPro is the database that holds the information on all these sequence features, commonly called signatures. Many research groups contribute to InterPro by creating signatures, and InterPro organises their contributions into a coherent database by grouping signatures from different researchers that recognise the same sets of proteins into one group identified by a unique InterPro identifier.
 
 UniProt then takes these InterPro identifiers, and the signatures that they contain and uses them in several different systems for annotating the 179.5 million predicted proteins.
 
-This code is about one of those prediction systems, known as UniRule. UniRule is a rules-based system, where the consistency of the properties of proteins recognised by a signature is manually reviewed before the signature is used to propagating functional annotation to unknown proteins
+This code is about one of those prediction systems, known as UniRule. UniRule is a rules-based system, where the consistency of the properties of proteins recognised by a signature is manually reviewed before the signature is used to propagate functional annotation to unknown proteins
 
-So this application is called CandidatesPython because it is using Python to search programmatically for signatures which are good candidates for use in a UniRule rule. Running this application saves a lot of wasted effort looking at signatures which do not have matches with consistent annotation among the know proteins, and so are not useful for propagating annotation.
+So this application is called CandidatesPython because it is using Python to search programmatically for signatures which are good candidates for use in a UniRule rule. Running this application saves a lot of wasted effort looking at signatures which do not have matches with consistent annotation among the known proteins, and so are not useful for propagating annotation.
 
 In practice, the application does the following:  
  - Collects all the currently available InterPro identifiers
@@ -23,7 +23,7 @@ In practice, the application does the following:
  - Collects all the reviewed UniProtKB proteins recognised these InterPro identifiers
   - Discards the InterPro identifiers which do not match enough reviewed protein records.
  - Extracts the annotation from the reviewed records and reorganises it by taxonomic group
- - Determines if the annotation is consistent for each of these taxomic groups and outputs the annotation to a file as a block of text.  
+ - Determines if the annotation is consistent for each of these taxonomic groups and outputs the annotation to a file as a block of text.  
  
  This file then contains the set of candidate signatures that those creating rules can work from with some hope of success.
  
@@ -38,11 +38,12 @@ The demo code can be invoked from anywhere on Unix with:
 or  
  ``path_to/CandidatesPython/bin/candidates.sh demo``  
 
-On Windows make sure the file  
-``CandidatesPython/bin/candidates_demo.bat``   
-is executable and double click, or invoke  
-``path_to/CandidatesPython/bin/candidates_demo.bat``  
-on the command line from any location.
+On Windows the code runs fine from within a Python shell running Python 3.5.  
+In the shell navigate to 
+``CandidatesPython``  
+then run the command:  
+``python -m candidates.candidates_main demo ``  
+(the file ``bin\candidates.bat`` is currently only working my personal installation of Python)
 
 ### Main
 The main version will take an hour or two to run and will download a lot of data - mostly because of all the look up of records via the public UniProtKB data service. **To run the main version, two files need to be collected and placed in the folder**  
@@ -57,6 +58,11 @@ The main version will take an hour or two to run and will download a lot of data
 ``cd CandidatesPython/data/main/input``  
 ``wget ftp://ftp.ebi.ac.uk/pub/contrib/UniProt/UniFIRE/rules/unirule-urml-latest.xml``  
 
+After this the code is run with:
+``path_to/CandidatesPython/bin/candidates.sh main``  on linux  
+and  
+``python -m candidates.candidates_main main ``   from the CandidatesPython folder within a Python shell on Windows.
+
 ## What happens during a run?
 All the calculations are run following the initial command, but the code executes in four distinct stages. The first two are quick, the third is very slow, and the fourth is reasonably fast.
 
@@ -65,7 +71,7 @@ The application checks that the user is running Python 3.5 or above and that the
 
 ### Stage 2 Generating a list of candidate protein signatures
 The contents of the input xml files is parsed to:
--  Create a mapping between InterPro identifiers and the Interpro member database signatures.
+-  Create a mapping between InterPro identifiers and the InterPro member database signatures.
 -  Create a mapping between InterPro identifiers and the InterPro type (eg Family, Domain, Site, etc)
 -  Filter the InterPro identifiers for Families and remove any that are listed in the InterPro xml file as contain other InterPro ids as children.
 - Collect all the InterPro signatures from the UniRule xml file that are already used as positive conditions in UniRule rules.
@@ -85,6 +91,7 @@ In the final stage the annotation found in the reviewed records identified by ea
 ### The final output
 
 The format of the output file is as shown below.  
+(Codes: CCFU function; CCLO subcellular location; SPKW keyword; DERF recommended full name; CCSI protein family)
 
 \# IPR004090  Reviewed 54, Unreviewed 105245
 |Kingdom|MajorTaxon|Code|Reviewed|SameAnnotation|AnnotationText|
