@@ -1,3 +1,6 @@
+This software is made available under Apache Licence, version 2.
+http://www.apache.org/licenses/LICENSE-2.0.html
+
 # Candidates Python
 ## Background
 The function of this application is to collect the reviewed UniProtKB proteins recognised by different InterPro Family signatures and to ouput blocks of text showing how consistent the annotations are among these protein records.
@@ -73,37 +76,40 @@ Annotation text
 
 
 \# IPR004090  Reviewed 54, Unreviewed 105245
-Bacteria Thermotogae    CCFU    3    3    Chemotactic-signal transducers respond to changes in the concentration of attractants ...
-Bacteria Thermotogae    CCLO    3    3    Cell membrane
-Bacteria Thermotogae    SPKW    3    3    Cell membrane
-Bacteria Thermotogae    SPKW    3    3    Chemotaxis
-Bacteria Thermotogae    SPKW    3    3    Complete proteome
-Bacteria Thermotogae    SPKW    3    3    Membrane
-Bacteria Thermotogae    SPKW    3    3    Methylation
-Bacteria Thermotogae    SPKW    3    3    Reference proteome
-Bacteria Thermotogae    SPKW    3    3    Transducer
-Bacteria Thermotogae    SPKW    3    3    Transmembrane
-Bacteria Thermotogae    SPKW    3    3    Transmembrane helix
-Bacteria Proteobacteria    SPKW    26    24    Complete proteome
-Bacteria Proteobacteria    SPKW    26    24    Reference proteome
-Bacteria Proteobacteria    SPKW    26    25    Transducer
-Bacteria Proteobacteria    SPKW    26    24    Membrane
-Bacteria Proteobacteria    SPKW    26    24    Transmembrane
-Bacteria Proteobacteria    SPKW    26    24    Transmembrane helix
-Archaea Euryarchaeota    SPKW    19    19    Transducer
-Bacteria Cyanobacteria    DERF    1    1    Putative methyl-accepting chemotaxis protein sll0041
-Bacteria Cyanobacteria    CCSI    1    1    Belongs to the phytochrome family
-Bacteria Cyanobacteria    SPKW    1    1    Complete proteome
-Bacteria Cyanobacteria    SPKW    1    1    Reference proteome
-Bacteria Cyanobacteria    SPKW    1    1    Repeat
-Bacteria Cyanobacteria    SPKW    1    1    Transducer
-Bacteria Firmicutes    CCLO    5    5    Cell membrane
-Bacteria Firmicutes    SPKW    5    5    Cell membrane
-Bacteria Firmicutes    SPKW    5    5    Complete proteome
-Bacteria Firmicutes    SPKW    5    5    Membrane
-Bacteria Firmicutes    SPKW    5    5    Transducer
-Bacteria Firmicutes    SPKW    5    5    Transmembrane
-Bacteria Firmicutes    SPKW    5    5    Transmembrane helix
+|Kingdom|MajorTaxon|Code|Reviewed|Unreviewed|AnnotatonText|
+|---|---|---|---|---|---|
+|Bacteria |Thermotogae    |CCFU    |3    |3    |Chemotactic-signal transducers respond to changes in the concentration of attractants ...|
+|Bacteria |Thermotogae    |CCLO    |3    |3    |Cell membrane|
+|Bacteria |Thermotogae    |SPKW    |3    |3    |Cell membrane|
+|Bacteria |Thermotogae    |SPKW    |3    |3    |Chemotaxis|
+|Bacteria |Thermotogae    |SPKW    |3    |3    |Complete proteome|
+|Bacteria |Thermotogae    |SPKW    |3    |3    |Membrane|
+|Bacteria |Thermotogae    |SPKW    |3    |3    |Methylation|
+|Bacteria |Thermotogae    |SPKW    |3    |3    |Reference proteome|
+|Bacteria |Thermotogae    |SPKW    |3    |3    |Transducer|
+|Bacteria |Thermotogae    |SPKW    |3    |3    |Transmembrane|
+|Bacteria |Thermotogae    |SPKW    |3    |3    |Transmembrane helix|
+|Bacteria |Proteobacteria    |SPKW    |26    |24    |Complete proteome|
+|Bacteria |Proteobacteria    |SPKW    |26    |24    |Reference proteome|
+|Bacteria |Proteobacteria    |SPKW    |26    |25    |Transducer|
+|Bacteria |Proteobacteria    |SPKW    |26    |24    |Membrane|
+|Bacteria |Proteobacteria    |SPKW    |26    |24    |Transmembrane|
+|Bacteria |Proteobacteria    |SPKW    |26    |24    |Transmembrane helix|
+|Archaea |Euryarchaeota    |SPKW    |19    |19    |Transducer|
+|Bacteria |Cyanobacteria    |DERF    |1    |1    |Putative methyl-accepting chemotaxis protein sll0041|
+|Bacteria |Cyanobacteria    |CCSI    |1    |1    |Belongs to the phytochrome family|
+|Bacteria |Cyanobacteria    |SPKW    |1    |1    |Complete proteome|
+|Bacteria |Cyanobacteria    |SPKW    |1    |1    |Reference proteome|
+|Bacteria |Cyanobacteria    |SPKW    |1    |1    |Repeat|
+|Bacteria |Cyanobacteria    |SPKW    |1    |1    |Transducer|
+|Bacteria |Firmicutes    |CCLO    |5    |5    |Cell membrane|
+|Bacteria |Firmicutes    |SPKW    |5    |5    |Cell membrane|
+|Bacteria |Firmicutes    |SPKW    |5    |5    |Complete proteome|
+|Bacteria |Firmicutes    |SPKW    |5    |5    |Membrane|
+|Bacteria |Firmicutes    |SPKW    |5    |5    |Transducer|
+|Bacteria |Firmicutes    |SPKW    |5    |5    |Transmembrane|
+|Bacteria |Firmicutes    |SPKW    |5    |5    |Transmembrane helix|
+
 
 
 
