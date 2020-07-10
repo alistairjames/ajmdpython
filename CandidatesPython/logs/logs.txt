@@ -1,15 +1,15 @@
-20-07-10 05:38:19 - INFO - candidates_main - check_input_data_exists:  Input data found: data\demo\input\interpro.xml and data\demo\input\unirule-urml-latest.xml
-20-07-10 05:38:19 - INFO - candidates_main - run_analysis:  Starting main analysis run
-20-07-10 05:38:19 - INFO - interpro - create_interproid_to_memberid_map:  Mapping for 40 InterProId to MemberId saved to data\demo\output\InterProId_MemberId_2020-07-10_05_38_19.tsv
-20-07-10 05:38:19 - INFO - interpro - create_interproid_to_type_map:  Mapping for 40 InterProId to Type saved to data\demo\output\InterProId_Type_2020-07-10_05_38_19.tsv
-20-07-10 05:38:19 - INFO - interpro - get_family_nochild_interpro:  Found 29 InterPro records with no children and no Hamap or PIR members
-20-07-10 05:38:19 - INFO - unirule - collect_used_signatures:  267 signatures already used in rules saved to data\demo\output\used_signatures_from_urml_file.list
-20-07-10 05:38:19 - INFO - interpro - create_interpro_candidate_list:  27 candidates remaining after filtering 29 for used signatures
-20-07-10 05:38:19 - INFO - counter - collect_counts:  Collecting reviewed and unreviewed count data from 27 InterPro ids
-20-07-10 05:38:36 - INFO - counter - collect_counts:  Collected reviewed and unreviewed counts for 20 signatures
-20-07-10 05:38:42 - INFO - counter - collect_counts:  Collected reviewed and unreviewed counts for 27 signatures
-20-07-10 05:38:42 - INFO - candidates_main - run_analysis:  ElapsedTime: 00:00:23
-20-07-10 05:38:42 - INFO - collect_candidates - collect_candidates_from_list_with_counts:  Starting to collect candidate rules from 20  InterPro signatures
-20-07-10 05:38:59 - INFO - collect_candidates - collect_candidates_from_list_with_counts:  Data collected for 20 candidate signatures
-20-07-10 05:39:01 - INFO - collect_candidates - collect_candidates_from_list_with_counts:  Data collected for 20 candidate signatures
-20-07-10 05:39:01 - INFO - candidates_main - run_analysis:  Analysis completed. Elapsed time: 00:00:42
+20-07-10 09:20:44 - INFO - candidates_main - check_input_data_exists:  Input data found: data/demo/input/interpro.xml and data/demo/input/unirule-urml-latest.xml
+20-07-10 09:20:44 - INFO - candidates_main - run_analysis:  Starting main analysis run
+20-07-10 09:20:44 - INFO - interpro - create_interproid_to_memberid_map:  Mapping for 40 InterProId to MemberId saved to data/demo/output/InterProId_MemberId_2020-07-10_09_20_44.tsv
+20-07-10 09:20:44 - INFO - interpro - create_interproid_to_type_map:  Mapping for 40 InterProId to Type saved to data/demo/output/InterProId_Type_2020-07-10_09_20_44.tsv
+20-07-10 09:20:44 - INFO - interpro - get_family_nochild_interpro:  Found 29 InterPro records with no children and no Hamap or PIR members
+20-07-10 09:20:44 - INFO - unirule - collect_used_signatures:  267 signatures already used in rules saved to data/demo/output/used_signatures_from_urml_file.list
+20-07-10 09:20:44 - INFO - interpro - create_interpro_candidate_list:  27 candidates remaining after filtering 29 for used signatures
+20-07-10 09:20:44 - INFO - counter - collect_counts:  Collecting reviewed and unreviewed count data from 27 InterPro ids
+20-07-10 09:20:58 - INFO - counter - collect_counts:  Collected reviewed and unreviewed counts for 20 signatures
+20-07-10 09:21:03 - INFO - counter - collect_counts:  Collected reviewed and unreviewed counts for 27 signatures
+20-07-10 09:21:03 - INFO - candidates_main - run_analysis:  ElapsedTime: 00:00:19
+20-07-10 09:21:03 - INFO - collect_candidates - collect_candidates_from_list_with_counts:  Starting to collect candidate rules from 20  InterPro signatures
+20-07-10 09:21:18 - INFO - collect_candidates - collect_candidates_from_list_with_counts:  Data collected for 20 candidate signatures
+20-07-10 09:21:18 - INFO - collect_candidates - collect_candidates_from_list_with_counts:  Data collected for 20 candidate signatures
+20-07-10 09:21:18 - INFO - candidates_main - run_analysis:  Analysis completed. Elapsed time: 00:00:33
