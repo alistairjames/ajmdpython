@@ -1,3 +1,8 @@
 
+@echo on
+set condadir=C:\Users\Alistair\Anaconda3
+call %condadir%\Scripts\activate.bat %condadir%
+cd ..
+python -m candidates.candidates_main
 
-# https://stackoverflow.com/questions/17063947/get-current-batchfile-directory
+pause

@@ -1,5 +1,6 @@
 
 from lxml import etree
+import candidates.unirule as unirule
 import candidates.utils as utils
 import logging
 logger = logging.getLogger(__name__)
@@ -98,12 +99,11 @@ def get_family_nochild_interpro(xmlfilepath, outfilepath):
     """
 
 
-def create_interpro_candidate_list(ipr_to_member_filepath, used_signatures_filepath,
+def create_interpro_candidate_list(ipr_to_member_filepath, unirule_used_path,
                                    interpro_nochild_filepath, outfilepath):
 
-    ip_members_map = __get_member_map(ipr_to_member_filepath)
-    used_sigs = utils.file_list_to_set(used_signatures_filepath)
-
+    ip_members_map = get_member_map(ipr_to_member_filepath)
+    used_sigs = utils.file_list_to_set(unirule_used_path)
     ip_candidate_list = []
     for ip_line in open(interpro_nochild_filepath):
         ip_candidate_list.append(ip_line.rstrip())
@@ -118,7 +118,7 @@ def create_interpro_candidate_list(ipr_to_member_filepath, used_signatures_filep
 
 # Used only by create_interpro_candidate_list
 # create two maps from the file, one from sig to ipr sig and another from ipr to a set of sigs
-def __get_member_map(filename):
+def get_member_map(filename):
     ipr_siglist_map = {}
 
     for line in open(filename):

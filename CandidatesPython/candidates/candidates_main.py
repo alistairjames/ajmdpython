@@ -31,12 +31,12 @@ def run_analysis(timestamp, start_time, interpro_path, unirule_path):
     interpro.get_family_nochild_interpro(interpro_path, interpro_nochild_path)
 
     # Extract the list of used signatures from the unifire xml file unirule-urml-latest.xml
-    used_signatures_filepath = os.sep.join([data_path, 'output', 'used_signatures_from_urml_file.list'])
-    unirule.collect_used_signatures(unirule_path, used_signatures_filepath)
+    used_signatures_outpath = os.sep.join([data_path, 'output', 'used_signatures_from_urml_file.list'])
+    unirule.collect_used_signatures(unirule_path, used_signatures_outpath)
 
     # Filter the extracted InterPro families to remove any that contain signatures already used in rules
     prelim_candidates_path = os.sep.join([data_path, 'output', f'Prelim_Candidates_{timestamp}.list'])
-    interpro.create_interpro_candidate_list(interpro_2_member_path, used_signatures_filepath,
+    interpro.create_interpro_candidate_list(interpro_2_member_path, used_signatures_outpath,
                                             interpro_nochild_path, prelim_candidates_path)
 
     # Filter the preliminary candidate signatures based on the number of UniProt reviewed and unreviewed hits.
@@ -55,7 +55,8 @@ def run_analysis(timestamp, start_time, interpro_path, unirule_path):
 def logger_setup():
     logger.setLevel(logging.DEBUG)
     ch = logging.StreamHandler()
-    fh = logging.FileHandler('logs/log.txt', 'w')
+    logpath = os.sep.join(['logs', 'logs.txt'])
+    fh = logging.FileHandler(logpath, 'w')
     ch.setLevel(logging.INFO)
     fh.setLevel(logging.INFO)
     log_format = logging.Formatter('%(asctime)s - %(levelname)s - %(module)s - %(funcName)s:  %(message)s',
@@ -84,7 +85,7 @@ def run_candidates(run_type):
     interpro_xmlpath = os.sep.join([data_path, 'input', 'interpro.xml'])
     unirule_xmlpath = os.sep.join([data_path, 'input', 'unirule-urml-latest.xml'])
     if check_input_data_exists(interpro_xmlpath, unirule_xmlpath):
-        timestamp = '{:%Y-%m-%d_%H:%M:%S}'.format(datetime.now())
+        timestamp = '{:%Y-%m-%d_%H_%M_%S}'.format(datetime.now())
         start_time = time.time()
         run_analysis(timestamp, start_time, interpro_xmlpath, unirule_xmlpath)
     else:
