@@ -3,7 +3,7 @@ import os
 import os.path
 import candidates.interpro as interpro
 import candidates.unirule as unirule
-import candidates.uniprot.counter as uniprotcounter
+import candidates.uniprot.count_candidate_hits as uniprotcounter
 import candidates.utils as utils
 import candidates.uniprot.collect_candidates as uniprotcollector
 from datetime import datetime
@@ -52,10 +52,11 @@ def run_analysis(timestamp, start_time, interpro_path, unirule_path):
     logger.info(f'Analysis completed. Elapsed time: {utils.get_elapsed_time(start_time)}')
 
 
-def logger_setup():
+def logger_setup(timestamp):
     logger.setLevel(logging.DEBUG)
     ch = logging.StreamHandler()
-    logpath = os.sep.join(['logs', 'logs.txt'])
+    logpath = os.sep.join(['logs', f'log_{timestamp}.txt'])
+    print(f'File path for the log is {logpath}')
     fh = logging.FileHandler(logpath, 'w')
     ch.setLevel(logging.INFO)
     fh.setLevel(logging.INFO)
@@ -77,7 +78,8 @@ def check_input_data_exists(interpro_path, unirule_path):
 
 
 def run_candidates(run_type):
-    logger_setup()
+    timestamp = '{:%Y-%m-%d_%H%M%S}'.format(datetime.now())
+    logger_setup(timestamp)
     global data_path
     data_path = os.sep.join(['data', run_type])
 
@@ -85,7 +87,6 @@ def run_candidates(run_type):
     interpro_xmlpath = os.sep.join([data_path, 'input', 'interpro.xml'])
     unirule_xmlpath = os.sep.join([data_path, 'input', 'unirule-urml-latest.xml'])
     if check_input_data_exists(interpro_xmlpath, unirule_xmlpath):
-        timestamp = '{:%Y-%m-%d_%H_%M_%S}'.format(datetime.now())
         start_time = time.time()
         run_analysis(timestamp, start_time, interpro_xmlpath, unirule_xmlpath)
     else:
