@@ -66,17 +66,10 @@ In the final stage the annotation found in the reviewed records identified by ea
 
 ### The final output
 
-The format of the output file is as shown below.  The six columns are:
-Kingdom
-Major Taxonomy
-Code for the annotation (eg CCFU = Function, SPKW = Keyword)
-Number of reviewed in this taxonomic group
-Number of records that have identical annotation
-Annotation text
-
+The format of the output file is as shown below.  
 
 \# IPR004090  Reviewed 54, Unreviewed 105245
-|Kingdom|MajorTaxon|Code|Reviewed|Unreviewed|AnnotatonText|
+|Kingdom|MajorTaxon|Code|Reviewed|Unreviewed|AnnotationText|
 |---|---|---|---|---|---|
 |Bacteria |Thermotogae    |CCFU    |3    |3    |Chemotactic-signal transducers respond to changes in the concentration of attractants ...|
 |Bacteria |Thermotogae    |CCLO    |3    |3    |Cell membrane|
