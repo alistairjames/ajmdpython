@@ -69,7 +69,7 @@ In the final stage the annotation found in the reviewed records identified by ea
 The format of the output file is as shown below.  
 
 \# IPR004090  Reviewed 54, Unreviewed 105245
-|Kingdom|MajorTaxon|Code|Reviewed|Unreviewed|AnnotationText|
+|Kingdom|MajorTaxon|Code|Reviewed|SameAnnotation|AnnotationText|
 |---|---|---|---|---|---|
 |Bacteria |Thermotogae    |CCFU    |3    |3    |Chemotactic-signal transducers respond to changes in the concentration of attractants ...|
 |Bacteria |Thermotogae    |CCLO    |3    |3    |Cell membrane|
