@@ -26,7 +26,8 @@ Eukaryota Metazoa	SPKW	115	114	Transport
 """
 
 import sys
-import candidates.uniprot.record_lookup as lookup
+import json
+import candidates.utils as utils
 from copy import deepcopy
 import traceback
 import logging
@@ -54,7 +55,7 @@ def collect_candidates_from_list_with_counts(infilepath, outfilepath):
         if count % 20 == 0:
             logger.info(f'Data collected for {count} candidate signatures')
         # this gets a single json object containing several uniprot records
-        jsonrecords = lookup.get_reviewed_uniprot_jsons_from_interpro_id(signature)
+        jsonrecords = get_reviewed_uniprot_jsons_from_interpro_id(signature)
         # update the reviewed count read in to signature_with_counts_list from infilepath
         reviewed = len(jsonrecords)
         taxonomy_groups = group_records_by_taxonomy_from_json(jsonrecords)
@@ -245,6 +246,13 @@ def output_taxonomy_annotation_collection(taxonomy, annotation_collection, outfi
                     outfile.write(text + '\n')
 
 
+# Result is a json object containing several records
+# Errors are handled by the get_url_with_retry method
+def get_reviewed_uniprot_jsons_from_interpro_id(interpro):
+    url = 'https://www.ebi.ac.uk/proteins/api/proteins/InterPro:{0}?offset=0&size=-1&reviewed=true'.format(interpro)
+    headers = {"Accept": "application/json"}
+    r = utils.get_url_with_retry(url, headers)
+    return json.loads(r.text)
 
 
 

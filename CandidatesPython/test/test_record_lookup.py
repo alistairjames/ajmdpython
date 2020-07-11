@@ -1,11 +1,11 @@
-import candidates.uniprot.record_lookup as lookup
+import candidates.uniprot.collect_candidates as collector
 import time
 from unittest.mock import Mock
 
 
 # Mock ?
 def test_get_reviewed_jsonrecords_for_signature():
-    json_records = lookup.get_reviewed_uniprot_jsons_from_interpro_id('IPR038987')
+    json_records = collector.get_reviewed_uniprot_jsons_from_interpro_id('IPR038987')
     assert len(json_records) == 28
 
 

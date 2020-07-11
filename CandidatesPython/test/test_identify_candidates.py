@@ -1,7 +1,7 @@
-import candidates.interpro as interpro
-import candidates.uniprot.counter as uniprotcounter
-import candidates.unirule as unirule
 import os
+import candidates.interpro as interpro
+import candidates.uniprot.count_candidate_hits as uniprotcounter
+import candidates.unirule as unirule
 data_in = os.sep.join(['data', 'test', 'input'])
 data_out = os.sep.join(['data', 'test', 'output'])
 
