@@ -14,3 +14,9 @@ def test_calculate_split_positions():
     assert results == [(1, 0, 8), (2, 8, 16), (3, 16, 24), (4, 24, 32)]
 
 
+def test_calculate_split_positions2():
+    list_length = 14368
+    threads = utils.calculate_thread_count(list_length)
+    results = utils.calculate_split_positions(list_length, threads)
+    assert results[-2:] == [(149, 14208, 14304), (150, 14304, 14368)]
+

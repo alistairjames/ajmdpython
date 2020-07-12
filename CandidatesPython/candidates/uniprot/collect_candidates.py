@@ -138,6 +138,8 @@ def collect_batch_of_candidates(input_data: tuple) -> dict:
             candidate_data = get_taxonomy_annotation_collection(taxon, consistent_annotations)
             all_tax_data.extend(candidate_data)
         result_dict[updated_key] = all_tax_data
+    logger.info(f'Thread {thread_id} has finished collecting data for {count} candidates '
+                                                           f'out of {len(interpro_data_list)}')
     return result_dict
 
 

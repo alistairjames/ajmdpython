@@ -1,6 +1,7 @@
 import time
 import sys
 import requests
+import math
 import logging
 logger = logging.getLogger(__name__)
 
@@ -72,7 +73,7 @@ def calculate_thread_count(n: int):
 # The other two show where to split the list
 def calculate_split_positions(list_length: int, threadcount: int) -> list:
     param_list = []
-    j = int(list_length / threadcount)
+    j = int(math.ceil(list_length / threadcount))
     start, end = 0, 0
     i = 0
     for i in range(threadcount - 1):
