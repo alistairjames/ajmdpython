@@ -24,7 +24,7 @@ Eukaryota Metazoa	SPKW	115	114	Signal
 Eukaryota Metazoa	SPKW	115	114	Transport
 
 """
-
+import concurrent.futures
 import sys
 import json
 import candidates.utils as utils
@@ -42,9 +42,9 @@ annotation_string_types = ['accession', 'DERF',  'GNNM']
 excluded_keywords = ['Complete proteome', ]
 
 
-def collect_candidates_from_list_with_counts(infilepath, outfilepath):
-    signature_with_counts_list = [line.rstrip() for line in open(infilepath)]
-    logger.info(f'Starting to collect candidate rules from {len(signature_with_counts_list)}  InterPro signatures')
+def collect_candidates_on_main_thread(signature_with_counts_list: list, outfilepath: str):
+    n = len(signature_with_counts_list)
+    logger.info(f'Starting to collect candidate rules from {n} InterPro signatures on main thread')
 
     outfile = open(outfilepath, 'w')
     outfile.write('# Columns: TaxonomicGroup / AnnotationCode / Total / Consistent / AnnotationText\n')
@@ -64,10 +64,92 @@ def collect_candidates_from_list_with_counts(infilepath, outfilepath):
         for taxon in taxonomy_groups:
             annotation_collection = get_json_data_grouped_by_annotations(taxonomy_groups[taxon])
             consistent_annotations = get_consistent_annotations(annotation_collection)
-            output_taxonomy_annotation_collection(taxon, consistent_annotations, outfile)
+            get_taxonomy_annotation_collection(taxon, consistent_annotations, outfile)
 
     outfile.close()
     logger.info(f'Data collected for {count} candidate signatures')
+
+
+def collect_candidates_with_threads(infile_path: str, outfile_path: str):
+    sig_with_counts_strings = [line.rstrip() for line in open(infile_path)]
+    list_length = len(sig_with_counts_strings)
+    thread_count = utils.calculate_thread_count(len(sig_with_counts_strings))
+    if thread_count == 1:
+        collect_candidates_on_main_thread(sig_with_counts_strings, outfile_path)
+        return
+    else:
+        logger.info(f'Collecting reviewed hits from {list_length} InterPro ids using {thread_count} threads')
+
+    params = get_candidate_parameters_for_executor_map(thread_count, sig_with_counts_strings)
+    with concurrent.futures.ThreadPoolExecutor(max_workers=len(params)) as executor:
+        results = executor.map(collect_batch_of_candidates, params)
+        # Candidate is returned from each thread as a dictionary ipr: candidate_text_lines
+        # all_results is a list of dictionaries
+        all_results = list(results)
+    # Merge the results
+    all_results_dict = all_results[0]
+    for i in range(1, len(all_results)):
+        all_results_dict.update(all_results[i])
+
+    outfile = open(outfile_path, 'w')
+    outfile.write('# Columns: TaxonomicGroup / AnnotationCode / Total / Consistent / AnnotationText\n')
+    # IPR000030  Reviewed: 96  Unreviewed: 13114
+
+    # May as well sort on the keys!
+    for key in sorted(all_results_dict):
+        interpro, reviewed, unreviewed = key.split('\t')
+        text = f'\n# {interpro}  Reviewed:  {reviewed}  Unreviewed:  {unreviewed}\n'
+        outfile.write(text)
+        outfile.write('\n'.join(all_results_dict[key]) + '\n')
+    outfile.close()
+    logger.info(f'Collected candidate data for {len(all_results_dict)} candidate signatures')
+
+
+# string_list is list of (InterProId \t rev \t unrev)
+def get_candidate_parameters_for_executor_map(threads: int, string_list: list) -> list:
+    parameter_list = []
+    for split in utils.calculate_split_positions(len(string_list), threads):
+        thread_id, start, end = split
+        parameter_list.append((thread_id, string_list[start:end]))
+    return parameter_list
+
+
+# input_data is thread_id, and list of strings Interpro_id \t reviewed_count \t unreviewed_count
+def collect_batch_of_candidates(input_data: tuple) -> dict:
+    thread_id, interpro_data_list = input_data
+    logger.info(f'Thread {thread_id} has started collecting {len(interpro_data_list)} candidates')
+    result_dict = {}
+    count = 0
+    for data in interpro_data_list:
+        signature, reviewed, unreviewed = data.split('\t')
+        count += 1
+        if count % 5 == 0:
+            logger.info(f'Thread {thread_id} collected data for {count} candidate signatures')
+        # this gets a single json object containing several uniprot records
+        jsonrecords = get_reviewed_uniprot_jsons_from_interpro_id(signature)
+        # update the reviewed count in case there is an update in the database
+        reviewed = len(jsonrecords)
+        updated_key = f'{signature}\t{reviewed}\t{unreviewed}'
+        all_tax_data = []
+        taxonomy_groups = group_records_by_taxonomy_from_json(jsonrecords)
+        for taxon in taxonomy_groups:
+            annotation_collection = get_json_data_grouped_by_annotations(taxonomy_groups[taxon])
+            consistent_annotations = get_consistent_annotations(annotation_collection)
+            candidate_data = get_taxonomy_annotation_collection(taxon, consistent_annotations)
+            all_tax_data.extend(candidate_data)
+        result_dict[updated_key] = all_tax_data
+    logger.info(f'Thread {thread_id} has finished collecting data for {count} candidates '
+                                                           f'out of {len(interpro_data_list)}')
+    return result_dict
+
+
+# Result is a json object containing several records
+# Errors are handled by the get_url_with_retry method
+def get_reviewed_uniprot_jsons_from_interpro_id(interpro: str) -> json:
+    url = 'https://www.ebi.ac.uk/proteins/api/proteins/InterPro:{0}?offset=0&size=-1&reviewed=true'.format(interpro)
+    headers = {"Accept": "application/json"}
+    r = utils.get_url_with_retry(url, headers)
+    return json.loads(r.text)
 
 
 # Structure of annotations is a dictionary with either single terms or a list of terms
@@ -185,7 +267,7 @@ def group_records_by_taxonomy_from_json(json):
     return taxongroups
 
 
-def get_json_data_grouped_by_annotations(json_list):
+def get_json_data_grouped_by_annotations(json_list) -> dict:
     # Add all the annotations
     annotation_collection = {'accession_list': [], 'taxonomy': set()}
     for record in json_list:
@@ -212,7 +294,7 @@ def get_json_data_grouped_by_annotations(json_list):
     return annotation_collection
 
 
-def get_consistent_annotations(annotation_collection):
+def get_consistent_annotations(annotation_collection) -> dict:
     cutoff = len(annotation_collection['accession_list']) * 0.9
     filtered_annotations = deepcopy(annotation_collection)
     for atype in ['DERF', 'GNNM']:
@@ -234,25 +316,21 @@ def add_to_annotation_collection(annotation_collection, atype, annotation, acces
     annotation_collection[atype][annotation].append(accession)
 
 
-def output_taxonomy_annotation_collection(taxonomy, annotation_collection, outfile=None):
-    totalrecords = len(annotation_collection['accession_list'])
+# Collects for one taxonomy which will be only part of the data for one InterPro Id
+def get_taxonomy_annotation_collection(taxonomy, consistent_annotation, outfile=None):
+    totalrecords = len(consistent_annotation['accession_list'])
+    text_data = []
     for atype in ['DERF', 'GNNM', 'DERS', 'DEEC', 'DEAF', 'CCFU',
                   'CCLO', 'CCPA', 'CCSI', 'CCSU', 'SPKW', 'CCCO', 'CCCA']:
-        if atype in annotation_collection:
-            for annotation in annotation_collection[atype]:
-                consistentnumber = len(annotation_collection[atype][annotation])
+        if atype in consistent_annotation:
+            for annotation in consistent_annotation[atype]:
+                consistentnumber = len(consistent_annotation[atype][annotation])
                 text = '{0}\t{1}\t{2}\t{3}\t{4}'.format(taxonomy, atype, totalrecords, consistentnumber, annotation)
+                text_data.append(text)
                 if outfile:
                     outfile.write(text + '\n')
+    return text_data
 
-
-# Result is a json object containing several records
-# Errors are handled by the get_url_with_retry method
-def get_reviewed_uniprot_jsons_from_interpro_id(interpro):
-    url = 'https://www.ebi.ac.uk/proteins/api/proteins/InterPro:{0}?offset=0&size=-1&reviewed=true'.format(interpro)
-    headers = {"Accept": "application/json"}
-    r = utils.get_url_with_retry(url, headers)
-    return json.loads(r.text)
 
 
 

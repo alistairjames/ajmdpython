@@ -48,7 +48,7 @@ def run_analysis(timestamp, start_time, interpro_path, unirule_path):
 
     # Look up the reviewed records for the remaining families and collect those with consistent annotation
     outfilepath = os.sep.join([data_path, 'output', f'CandidateRules_{timestamp}.tsv'])
-    uniprotcollector.collect_candidates_from_list_with_counts(candidates_filtered_path, outfilepath)
+    uniprotcollector.collect_candidates_with_threads(candidates_filtered_path, outfilepath)
     logger.info(f'Analysis completed. Elapsed time: {utils.get_elapsed_time(start_time)}')
 
 
@@ -56,7 +56,6 @@ def logger_setup(timestamp):
     logger.setLevel(logging.DEBUG)
     ch = logging.StreamHandler()
     logpath = os.sep.join(['logs', f'log_{timestamp}.txt'])
-    print(f'File path for the log is {logpath}')
     fh = logging.FileHandler(logpath, 'w')
     ch.setLevel(logging.INFO)
     fh.setLevel(logging.INFO)
@@ -66,6 +65,8 @@ def logger_setup(timestamp):
     fh.setFormatter(log_format)
     logger.addHandler(ch)
     logger.addHandler(fh)
+    logger.info(f'File path for the log is {logpath}')
+
 
 
 def check_input_data_exists(interpro_path, unirule_path):
