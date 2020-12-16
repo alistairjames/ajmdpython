@@ -54,17 +54,18 @@ def get_url_with_retry(url, headers):
 
 
 # Calculate number of threads (t) to use for list length of n
+# Use only 1 thread if the list is 10 or less and a maximum of 50 threads
 # Requirements:
 # if n <= 10,  t = 1
-# if n > 750, t = 150
+# if n > 250, t = 50
 # from 10 to 750 as many threads as possible as long as n/t >= 5
 def calculate_thread_count(n: int):
     if n <= 10:
         return 1
-    elif n > 750:
-        return 150
+    elif n > 250:
+        return 50
     else:
-        for t in range(150, 1, -1):
+        for t in range(50, 1, -1):
             if n / t >= 5:
                 return t
 
