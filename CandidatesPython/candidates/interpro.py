@@ -73,7 +73,7 @@ def get_family_nochild_interpro(xmlfilepath, outfilepath):
         id = interpro.attrib['id']
         iptype = interpro.attrib['type']
         childlist = interpro.find('child_list')
-        if iptype == 'family' and childlist is None:
+        if iptype == 'Family' and childlist is None:
             memberlist = interpro.find('member_list')
             if any(member.attrib['db'] in ('HAMAP', 'PIRSF') for member in memberlist.findall('db_xref')):
                 continue

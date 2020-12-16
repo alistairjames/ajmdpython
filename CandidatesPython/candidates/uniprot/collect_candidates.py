@@ -117,13 +117,14 @@ def get_candidate_parameters_for_executor_map(threads: int, string_list: list) -
 # input_data is thread_id, and list of strings Interpro_id \t reviewed_count \t unreviewed_count
 def collect_batch_of_candidates(input_data: tuple) -> dict:
     thread_id, interpro_data_list = input_data
-    logger.info(f'Thread {thread_id} has started collecting {len(interpro_data_list)} candidates')
+    if thread_id == 1:
+        logger.info(f'Thread {thread_id} has started collecting {len(interpro_data_list)} candidates')
     result_dict = {}
     count = 0
     for data in interpro_data_list:
         signature, reviewed, unreviewed = data.split('\t')
         count += 1
-        if count % 5 == 0:
+        if thread_id == 1 and count % 5 == 0:
             logger.info(f'Thread {thread_id} collected data for {count} candidate signatures')
         # this gets a single json object containing several uniprot records
         jsonrecords = get_reviewed_uniprot_jsons_from_interpro_id(signature)
@@ -138,7 +139,8 @@ def collect_batch_of_candidates(input_data: tuple) -> dict:
             candidate_data = get_taxonomy_annotation_collection(taxon, consistent_annotations)
             all_tax_data.extend(candidate_data)
         result_dict[updated_key] = all_tax_data
-    logger.info(f'Thread {thread_id} has finished collecting data for {count} candidates '
+    if thread_id == 1:
+        logger.info(f'Thread {thread_id} has finished collecting data for {count} candidates '
                                                            f'out of {len(interpro_data_list)}')
     return result_dict
 

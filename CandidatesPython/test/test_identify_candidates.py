@@ -30,4 +30,4 @@ def test_filter_candidates_by_hit_count():
     test_lines = open(test_outfilepath).readlines()
     candidate, rev, unrev = test_lines[2].rstrip().split('\t')
     assert len(test_lines) == 4
-    assert (candidate, rev, unrev) == ('IPR000247', '29', '1126')
+    assert (candidate, rev, unrev) == ('IPR000247', '29', '1166')

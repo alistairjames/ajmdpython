@@ -94,14 +94,16 @@ def collect_batch_of_hit_counts(params: tuple) -> dict:
     else:
         status = 'unreviewed'
     result_dict = {}
-    logger.info(f'Thread {thread_id} has started collecting {len(id_list)} {status} items')
+    # logger.info(f'Thread {thread_id} has started collecting {len(id_list)} {status} items')
     count = 0
     for ipr in id_list:
         count += 1
-        if count % 5 == 0:
+        # Only report as thread 1 progresses
+        if count % 5 == 0 and thread_id == 1:
             logger.info(f'Thread {thread_id} has collected {count} out of {len(id_list)} {status} items')
         result_dict[ipr] = get_count(ipr, reviewed)
-    logger.info(f'Thread {thread_id} has finished collecting {count} out of {len(id_list)} {status} items')
+    if thread_id == 1:
+        logger.info(f'Thread {thread_id} has finished collecting {count} out of {len(id_list)} {status} items')
     return result_dict
 
 

@@ -36,17 +36,22 @@ def fileline_filter(filename, text):
 
 def get_url_with_retry(url, headers):
     tries = 1
-    r = requests.get(url, headers=headers)
-    if r.ok:
+    r = None
+    try:
+        r = requests.get(url, headers=headers)
+    except:
+        logger.error(f'requests.get first attempt failed for {url}')
+    if r is not None and r.ok:
         return r
     else:
-        while not r.ok and tries < 6:
+        while r is None or (not r.ok and tries < 6):
             tries += 1
-            time.sleep(3 ** tries)
-            r = requests.get(url, headers=headers)
-            if r.ok:
-                if tries > 1:
-                    logger.warning(f'Took {tries} attempts to collect data from {url}')
+            time.sleep(tries * 2)
+            try:
+                r = requests.get(url, headers=headers)
+            except:
+                logger.error(f'requests.get retry {tries} failed for {url}')
+            if r is not None and r.ok:
                 return r
         r.raise_for_status()
         logger.error(f'Failed to collect UniProt record data after {tries} attempts. Giving up analysis.')

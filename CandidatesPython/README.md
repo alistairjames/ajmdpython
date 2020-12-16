@@ -64,7 +64,7 @@ and
 ``python -m candidates.candidates_main main ``   from the CandidatesPython folder within a Python shell on Windows.
 
 ## What happens during a run?
-All the calculations are run following the initial command, but the code executes in four distinct stages. The first two are quick, the third is very slow, and the fourth is reasonably fast. The time taken for stages 3 and 4 is shortened considerably by running up to 150 threads, so that the lookup to count the protein matches for 15,000 InterPro identifiers in UniProtKB is completed in less than half an hour, and the overall run time is under 40 minutes.
+All the calculations are run following the initial command, but the code executes in four distinct stages. The first two are quick, the third is very slow, and the fourth is reasonably fast. The time taken for stages 3 and 4 is shortened considerably by running up to 50 threads, so that the lookup to count the protein matches for 15,000 InterPro identifiers in UniProtKB is completed in less than half an hour, and the overall run time is under 40 minutes.
 
 ### Stage 1 Checking user setup
 The application checks that the user is running Python 3.5 or above and that the required files are in the input folders. If not the application exits.
