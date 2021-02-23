@@ -2,8 +2,8 @@ import os
 import candidates.interpro as interpro
 import candidates.uniprot.count_candidate_hits as uniprotcounter
 import candidates.unirule as unirule
-data_in = os.sep.join(['data', 'test', 'input'])
-data_out = os.sep.join(['data', 'test', 'output'])
+data_in = os.sep.join(['testdata', 'input'])
+data_out = os.sep.join(['testdata', 'output'])
 
 
 def test_create_interpro_candidate_list():
@@ -30,4 +30,4 @@ def test_filter_candidates_by_hit_count():
     test_lines = open(test_outfilepath).readlines()
     candidate, rev, unrev = test_lines[2].rstrip().split('\t')
     assert len(test_lines) == 4
-    assert (candidate, rev, unrev) == ('IPR000247', '29', '1166')
+    assert (candidate, rev, unrev) == ('IPR000247', '29', '1177')

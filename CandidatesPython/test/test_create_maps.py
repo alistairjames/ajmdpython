@@ -1,8 +1,8 @@
 import candidates.interpro as interpro
 import candidates.unirule as unirule
 import os
-data_in = os.sep.join(['data', 'test', 'input'])
-data_out = os.sep.join(['data', 'test', 'output'])
+data_in = os.sep.join(['testdata', 'input'])
+data_out = os.sep.join(['testdata', 'output'])
 
 
 def test_create_interproid_to_memberid_map():
@@ -24,7 +24,7 @@ def test_create_interproid_to_type_map():
     ipr, member = test_lines[5].rstrip().split('\t')
     assert len(test_lines) == 117
     assert ipr == 'IPR000009'
-    assert member == 'family'
+    assert member == 'Family'
 
 
 def test_get_family_nochild_interpro():

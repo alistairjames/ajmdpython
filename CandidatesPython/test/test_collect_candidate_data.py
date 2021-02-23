@@ -1,6 +1,6 @@
 import candidates.uniprot.collect_candidates as collector
 import json
-data_in = 'data/test/input/'
+data_in = 'testdata/input'
 
 # # Mock ?
 # test_list = ['Q4WF30', 'Q9BTE0', 'Q9HX72', 'Q9USR6', 'Q3UG98',
