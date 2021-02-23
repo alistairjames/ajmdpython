@@ -43,7 +43,7 @@ def get_url_with_retry(url, headers, thread_id=1):
     try:
         r = requests.get(url, headers=headers)
     except:
-        logger.error(f'Request failed on thread {thread_id}. Try {tries}/{max_tries} for {url}')
+        logger.error(f'Thread {thread_id}. Try {tries}/{max_tries} for {url}')
     if r is not None and r.ok:
         return r
     else:
@@ -53,13 +53,13 @@ def get_url_with_retry(url, headers, thread_id=1):
             try:
                 r = requests.get(url, headers=headers)
             except:
-                logger.error(f'requests.get retry {tries} failed for {url}')
+                logger.error(f'Thread {thread_id}. Try {tries}/{max_tries} for {url}')
             if r is not None and r.ok:
                 return r
     if r is not None:
         r.raise_for_status()
     # Throw an exception if this method failed to access the data
-    raise Exception('Completely failed to access ' + url)
+    raise Exception(f'Thread {thread_id} completely failed to access {url}')
 
 
 # Calculate number of threads (t) to use for list length of n

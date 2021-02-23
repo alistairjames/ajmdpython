@@ -78,7 +78,7 @@ def collect_candidates_with_threads(infile_path: str, outfile_path: str):
         collect_candidates_on_main_thread(sig_with_counts_strings, outfile_path)
         return
     else:
-        logger.info(f'Collecting reviewed hits from {list_length} InterPro ids using {thread_count} threads')
+        logger.info(f'Collecting data for {list_length} InterPro candidates using {thread_count} threads')
 
     params = get_candidate_parameters_for_executor_map(thread_count, sig_with_counts_strings)
     with concurrent.futures.ThreadPoolExecutor(max_workers=len(params)) as executor:
