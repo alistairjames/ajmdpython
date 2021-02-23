@@ -24,7 +24,7 @@
   <dbinfo dbname="CDD" entry_count="14908" file_date="05-APR-19" version="3.17"/>
   <dbinfo dbname="MOBIDBLT" entry_count="1" file_date="23-AUG-18" version="2.0"/>
 </release>
-<interpro id="IPR000030" protein_count="13642" short_name="PPE_family" type="family">
+<interpro id="IPR000030" protein_count="13642" short_name="PPE_family" type="Family">
   <name>PPE family</name>
   <abstract>
 <p>The human pathogen Mycobacterium tuberculosis harbours a large number of genes that encode proteins whose N-termini contain the characteristic motifs Pro-Glu (PE) or Pro-Pro-Glu (PPE). A subgroup of the PE proteins contains polymorphic GC-rich sequences (PGRS), while a subgroup of the PPE proteins contains major polymorphic tandem repeats (MPTR). The function of most of these proteins remains unknown [<cite idref="PUB00054031"/>]. However, the PE_PGRS proteins from Mycobacterium marinum are secreted by components of the ESX-5 system that belongs to the recently defined type VII secretion systems [<cite idref="PUB00054032"/>]. It has also been reported that the PE_PGRS family of proteins contains multiple calcium-binding and glycine-rich sequence motifs GGXGXD/NXUX. This sequence repeat constitutes a calcium-binding parallel beta-roll or parallel beta-helix structure and is found in RTX toxins secreted by many Gram-negative bacteria [<cite idref="PUB00054033"/>]. </p>
@@ -89,7 +89,7 @@
     <taxon_data name="Virus" proteins_count="6"/>
   </taxonomy_distribution>
 </interpro>
-<interpro id="IPR000044" protein_count="68" short_name="Uncharacterised_lipoprot_MG045" type="family">
+<interpro id="IPR000044" protein_count="68" short_name="Uncharacterised_lipoprot_MG045" type="Family">
   <name>Uncharacterised lipoprotein MG045</name>
   <abstract>
 <p>  Mycoplasma genitalium has the smallest known genome of any free-living organism. Its complete genome sequence has been determined by whole-genome random sequencing and assembly [<cite idref="PUB00005212"/>]. Only 470 putative coding regions were identified, including genes for DNA replication, transcription and translation, DNA repair, cellular transport and energy metabolism [<cite idref="PUB00005212"/>]. A hypothetical protein from the MG045 gene [<cite idref="PUB00002233"/>] has a homologue of similarly unknown function in M.pneumoniae; these, in turn, share regions of similarity with a family of putative lipoproteins from Ureaplasma parvum and Ureaplasma urealyticum. </p>
@@ -136,7 +136,7 @@
     <taxon_data name="Viruses" proteins_count="1"/>
   </taxonomy_distribution>
 </interpro>
-<interpro id="IPR000046" protein_count="300" short_name="NK1_rcpt" type="family">
+<interpro id="IPR000046" protein_count="300" short_name="NK1_rcpt" type="Family">
   <name>Neurokinin NK1 receptor</name>
   <abstract>
 <p>G protein-coupled receptors (GPCRs) constitute a vast protein family that encompasses a wide range of functions, including various autocrine, paracrine and endocrine processes. They show considerable diversity at the sequence level, on the basis of which they can be separated into distinct groups [<cite idref="PUB00053635"/>]. The term clan can be used to describe the GPCRs, as they embrace a group of families for which there are indications of evolutionary relationship, but between which there is no statistically significant similarity in sequence [<cite idref="PUB00004961"/>]. The currently known clan members include rhodopsin-like GPCRs (Class A, GPCRA), secretin-like GPCRs (Class B, GPCRB), metabotropic glutamate receptor family (Class C, GPCRC), fungal mating pheromone receptors (Class D, GPCRD), cAMP receptors (Class E, GPCRE) and frizzled/smoothened (Class F, GPCRF) [<cite idref="PUB00004961"/>, <cite idref="PUB00063577"/>, <cite idref="PUB00063578"/>, <cite idref="PUB00063579"/>, <cite idref="PUB00063580"/>].  GPCRs are major drug targets, and are consequently the subject of considerable research interest. It has been reported that the repertoire of GPCRs for endogenous ligands consists of approximately 400 receptors in humans and mice [<cite idref="PUB00053635"/>]. Most GPCRs are identified on the basis of their DNA sequences, rather than the ligand they bind, those that are unmatched to known natural ligands are designated by as orphan GPCRs, or unclassified GPCRs [<cite idref="PUB00063816"/>].
@@ -312,7 +312,7 @@ phosphoinositide pathway through a pertussis-toxin-insensitive G-protein [<cite 
     <taxon_data name="Metazoa" proteins_count="300"/>
   </taxonomy_distribution>
 </interpro>
-<interpro id="IPR000057" protein_count="100" short_name="Chemokine_CXCR2" type="family">
+<interpro id="IPR000057" protein_count="100" short_name="Chemokine_CXCR2" type="Family">
   <name>CXC chemokine receptor 2</name>
   <abstract>
 <p>Chemokines (chemotactic cytokines) are a family of chemoattractant molecules. They attract leukocytes to areas of inflammation and lesions, and play a key role in leukocyte activation. Originally defined as host defense proteins, chemokines are now known to play a much broader biological role [<cite idref="PUB00009401"/>]. They have a wide range of effects in many different cell types beyond the immune system, including, for example, various cells of the central nervous system [<cite idref="PUB00067945"/>], and endothelial cells, where they may act as either angiogenic or angiostatic factors [<cite idref="PUB00067946"/>].</p>
@@ -499,7 +499,7 @@ CXCL1, CXCL2, CXCL3, CXCL5 and CXCL7) with high affinity [<cite idref="PUB000679
     <taxon_data name="Metazoa" proteins_count="100"/>
   </taxonomy_distribution>
 </interpro>
-<interpro id="IPR000068" protein_count="9359" short_name="GPCR_3_Ca_sens_rcpt-rel" type="family">
+<interpro id="IPR000068" protein_count="9359" short_name="GPCR_3_Ca_sens_rcpt-rel" type="Family">
   <name>GPCR, family 3, extracellular calcium-sensing receptor-related</name>
   <abstract>
 <p>G protein-coupled receptors (GPCRs) constitute a vast protein family that encompasses a wide range of functions, including various autocrine, paracrine and endocrine processes. They show considerable diversity at the sequence level, on the basis of which they can be separated into distinct groups [<cite idref="PUB00053635"/>]. The term clan can be used to describe the GPCRs, as they embrace a group of families for which there are indications of evolutionary relationship, but between which there is no statistically significant similarity in sequence [<cite idref="PUB00004961"/>]. The currently known clan members include rhodopsin-like GPCRs (Class A, GPCRA), secretin-like GPCRs (Class B, GPCRB), metabotropic glutamate receptor family (Class C, GPCRC), fungal mating pheromone receptors (Class D, GPCRD), cAMP receptors (Class E, GPCRE) and frizzled/smoothened (Class F, GPCRF) [<cite idref="PUB00004961"/>, <cite idref="PUB00063577"/>, <cite idref="PUB00063578"/>, <cite idref="PUB00063579"/>, <cite idref="PUB00063580"/>].  GPCRs are major drug targets, and are consequently the subject of considerable research interest. It has been reported that the repertoire of GPCRs for endogenous ligands consists of approximately 400 receptors in humans and mice [<cite idref="PUB00053635"/>]. Most GPCRs are identified on the basis of their DNA sequences, rather than the ligand they bind, those that are unmatched to known natural ligands are designated by as orphan GPCRs, or unclassified GPCRs [<cite idref="PUB00063816"/>].
@@ -698,7 +698,7 @@ hypocalcemia [<cite idref="PUB00003896"/>].</p>
     <taxon_data name="Metazoa" proteins_count="15"/>
   </taxonomy_distribution>
 </interpro>
-<interpro id="IPR000074" protein_count="3070" short_name="ApoA_E" type="family">
+<interpro id="IPR000074" protein_count="3070" short_name="ApoA_E" type="Family">
   <name>Apolipoprotein A/E</name>
   <abstract>
 <p> Exchangeable apolipoproteins (apoA, apoC and apoE) have the same genomic structure and are members of a multi-gene family that probably evolved from a common ancestral gene. This entry includes the ApoA1, ApoA4, Apo5 and ApoE proteins. ApoA1, ApoA4 and Apo5 are part of the APOA1/C3/A4/A5 gene cluster on chromosome 11 [<cite idref="PUB00015448"/>]. Apolipoproteins function in lipid transport as structural components of lipoprotein particles, cofactors for enzymes and ligands for cell-surface receptors. In particular, apoA1 is the major protein component of high-density lipoproteins; apoA4 is thought to act primarily in intestinal lipid absorption; and apoE is a blood plasma protein that mediates the transport and uptake of cholesterol and lipid by way of its high affinity interaction with different cellular receptors, including the low-density lipoprotein (LDL) receptor. Recent findings with apoA1 and apoE suggest that the tertiary structures of these two members of the human exchangeable apolipoprotein gene family are related [<cite idref="PUB00015449"/>]. The three-dimensional structure of the LDL receptor-binding domain of apoE indicates that the protein forms an unusually elongated four-helix bundle that may be stabilised by a tightly packed hydrophobic core that includes leucine zipper-type interactions and by numerous salt bridges on the mostly charged surface. Basic amino acids important for LDL receptor binding are clustered into a surface patch on one long helix [<cite idref="PUB00005140"/>].</p>
@@ -833,7 +833,7 @@ hypocalcemia [<cite idref="PUB00003896"/>].</p>
     <taxon_data name="Fungi" proteins_count="2"/>
   </taxonomy_distribution>
 </interpro>
-<interpro id="IPR000091" protein_count="554" short_name="Huntingtin" type="family">
+<interpro id="IPR000091" protein_count="554" short_name="Huntingtin" type="Family">
   <name>Huntingtin</name>
   <abstract>
 <p>Huntington's disease (HD) is a mid-life onset, inherited, neurodegenerative
@@ -929,7 +929,7 @@ zippers [<cite idref="PUB00004844"/>]. It has been shown that neuronal inclusion
     <taxon_data name="Metazoa" proteins_count="5"/>
   </taxonomy_distribution>
 </interpro>
-<interpro id="IPR000098" protein_count="490" short_name="IL-10" type="family">
+<interpro id="IPR000098" protein_count="490" short_name="IL-10" type="Family">
   <name>Interleukin-10</name>
   <abstract>
 <p>Interleukin 10 (IL-10) is a secreted 17-21kDa protein that is non-
@@ -1004,7 +1004,7 @@ The overall topology resembles interferon-gamma.</p>
     <taxon_data name="Metazoa" proteins_count="342"/>
   </taxonomy_distribution>
 </interpro>
-<interpro id="IPR000101" protein_count="32566" short_name="GGT_peptidase" type="family">
+<interpro id="IPR000101" protein_count="32566" short_name="GGT_peptidase" type="Family">
   <name>Gamma-glutamyltranspeptidase</name>
   <abstract>
 <p>Gamma-glutamyltranspeptidase (<db_xref db="EC" dbkey="2.3.2.2"/>) (GGT) [<cite idref="PUB00003561"/>] catalyzes the transfer of the gamma-glutamyl moiety of glutathione to an acceptor that may be an amino acid, a peptide or water (forming glutamate). GGT plays a key role in the gamma-glutamyl cycle, a pathway for the synthesis and degradation of glutathione and drug and xenobiotic detoxification [<cite idref="PUB00006169"/>]. In prokaryotes and eukaryotes, it is an enzyme that consists of two polypeptide chains, a heavy and a light subunit, processed from a single chain precursor by an autocatalytic cleavage. The active site of GGT is known to be located in the light subunit. The sequences of mammalian and bacterial GGT show a number of regions of high similarity [<cite idref="PUB00002088"/>].  Pseudomonas cephalosporin acylases (<db_xref db="EC" dbkey="3.5.1"/>) that convert 7-beta-(4-carboxybutanamido)-cephalosporanic acid (GL-7ACA) into 7-aminocephalosporanic acid (7ACA) and glutaric acid are evolutionary related to GGT and also show some GGT activity [<cite idref="PUB00000636"/>]. Like GGT, these GL-7ACA acylases, are also composed of two subunits. This entry also includes the highly similar Scoloptoxin SSD14 from Scolopendra dehaani. SSD14 (which is also cleaved into alpha and beta subunits) has been shown to induce human platelet aggregation [<cite idref="PUB00092777"/>].</p>
@@ -1210,7 +1210,7 @@ The overall topology resembles interferon-gamma.</p>
     <taxon_data name="Metazoa" proteins_count="2"/>
   </taxonomy_distribution>
 </interpro>
-<interpro id="IPR000104" protein_count="1100" short_name="Antifreeze_1" type="family">
+<interpro id="IPR000104" protein_count="1100" short_name="Antifreeze_1" type="Family">
   <name>Antifreeze protein, type I</name>
   <abstract>
 <p>Marine teleosts from polar oceans can be protected from freezing in icy
@@ -1328,7 +1328,7 @@ stopped, or retarded, and the freezing point depressed. The high lysince content
     <taxon_data name="Bacteria" proteins_count="1"/>
   </taxonomy_distribution>
 </interpro>
-<interpro id="IPR000105" protein_count="497" short_name="Mu_opioid_rcpt" type="family">
+<interpro id="IPR000105" protein_count="497" short_name="Mu_opioid_rcpt" type="Family">
   <name>Mu opioid receptor</name>
   <abstract>
 <p>G protein-coupled receptors (GPCRs) constitute a vast protein family that encompasses a wide range of functions, including various autocrine, paracrine and endocrine processes. They show considerable diversity at the sequence level, on the basis of which they can be separated into distinct groups [<cite idref="PUB00053635"/>]. The term clan can be used to describe the GPCRs, as they embrace a group of families for which there are indications of evolutionary relationship, but between which there is no statistically significant similarity in sequence [<cite idref="PUB00004961"/>]. The currently known clan members include rhodopsin-like GPCRs (Class A, GPCRA), secretin-like GPCRs (Class B, GPCRB), metabotropic glutamate receptor family (Class C, GPCRC), fungal mating pheromone receptors (Class D, GPCRD), cAMP receptors (Class E, GPCRE) and frizzled/smoothened (Class F, GPCRF) [<cite idref="PUB00004961"/>, <cite idref="PUB00063577"/>, <cite idref="PUB00063578"/>, <cite idref="PUB00063579"/>, <cite idref="PUB00063580"/>].  GPCRs are major drug targets, and are consequently the subject of considerable research interest. It has been reported that the repertoire of GPCRs for endogenous ligands consists of approximately 400 receptors in humans and mice [<cite idref="PUB00053635"/>]. Most GPCRs are identified on the basis of their DNA sequences, rather than the ligand they bind, those that are unmatched to known natural ligands are designated by as orphan GPCRs, or unclassified GPCRs [<cite idref="PUB00063816"/>].
@@ -1471,7 +1471,7 @@ Beta-endorphin is the most potent endogenous ligand.</p>
     <taxon_data name="Metazoa" proteins_count="497"/>
   </taxonomy_distribution>
 </interpro>
-<interpro id="IPR000112" protein_count="98" short_name="GPCR_3_mtglu_rcpt_6" type="family">
+<interpro id="IPR000112" protein_count="98" short_name="GPCR_3_mtglu_rcpt_6" type="Family">
   <name>GPCR, family 3, metabotropic glutamate receptor 6</name>
   <abstract>
 <p>G protein-coupled receptors (GPCRs) constitute a vast protein family that encompasses a wide range of functions, including various autocrine, paracrine and endocrine processes. They show considerable diversity at the sequence level, on the basis of which they can be separated into distinct groups [<cite idref="PUB00053635"/>]. The term clan can be used to describe the GPCRs, as they embrace a group of families for which there are indications of evolutionary relationship, but between which there is no statistically significant similarity in sequence [<cite idref="PUB00004961"/>]. The currently known clan members include rhodopsin-like GPCRs (Class A, GPCRA), secretin-like GPCRs (Class B, GPCRB), metabotropic glutamate receptor family (Class C, GPCRC), fungal mating pheromone receptors (Class D, GPCRD), cAMP receptors (Class E, GPCRE) and frizzled/smoothened (Class F, GPCRF) [<cite idref="PUB00004961"/>, <cite idref="PUB00063577"/>, <cite idref="PUB00063578"/>, <cite idref="PUB00063579"/>, <cite idref="PUB00063580"/>].  GPCRs are major drug targets, and are consequently the subject of considerable research interest. It has been reported that the repertoire of GPCRs for endogenous ligands consists of approximately 400 receptors in humans and mice [<cite idref="PUB00053635"/>]. Most GPCRs are identified on the basis of their DNA sequences, rather than the ligand they bind, those that are unmatched to known natural ligands are designated by as orphan GPCRs, or unclassified GPCRs [<cite idref="PUB00063816"/>].
@@ -1655,7 +1655,7 @@ diseases [<cite idref="PUB00001481"/>, <cite idref="PUB00002780"/>].</p>
     <taxon_data name="Metazoa" proteins_count="98"/>
   </taxonomy_distribution>
 </interpro>
-<interpro id="IPR000116" protein_count="1879" short_name="HMGA" type="family">
+<interpro id="IPR000116" protein_count="1879" short_name="HMGA" type="Family">
   <name>High mobility group protein HMGA</name>
   <abstract>
 <p>This entry represents the HMGA family, whose members contain DNA-binding domains, also known as AT hooks due to their ability to interact with the narrow minor groove of AT-rich DNA sequences. They play an important role in chromatin organisation [<cite idref="PUB00074434"/>].</p>
@@ -1765,7 +1765,7 @@ diseases [<cite idref="PUB00001481"/>, <cite idref="PUB00002780"/>].</p>
     <taxon_data name="Fungi" proteins_count="11"/>
   </taxonomy_distribution>
 </interpro>
-<interpro id="IPR004643" protein_count="5809" short_name="Fe-S_L-Ser_bsu" type="family">
+<interpro id="IPR004643" protein_count="5809" short_name="Fe-S_L-Ser_bsu" type="Family">
   <name>Iron-sulphur-dependent L-serine dehydratase beta subunit</name>
   <abstract>
 <p>L-serine dehydratase, also called serine deaminase, catalyses the conversion of L-serine and water to pyruvate and ammonia during gluconeogenesis from serine. The enzyme forms a heterooctamer of four alpha chains and four beta chains.</p> 
@@ -1829,7 +1829,7 @@ diseases [<cite idref="PUB00001481"/>, <cite idref="PUB00002780"/>].</p>
     <taxon_data name="Cyanobacteria" proteins_count="1"/>
   </taxonomy_distribution>
 </interpro>
-<interpro id="IPR004644" protein_count="21842" short_name="Fe-S_L-Ser_mono" type="family">
+<interpro id="IPR004644" protein_count="21842" short_name="Fe-S_L-Ser_mono" type="Family">
   <name>Iron-sulphur-dependent L-serine dehydratase single chain form</name>
   <abstract>
 <p>This enzyme is also called serine deaminase. L-serine dehydratase converts serine into pyruvate in the gluconeogenesis pathway from serine.  This enzyme is comprised of a single chain in Escherichia coli, Mycobacterium tuberculosis, and several other species, but has separate alpha and beta chains in Bacillus subtilis and related species. The beta and alpha chains are homologous to the N-terminal and C-terminal regions, respectively, but are rather deeply branched in a UPGMA tree. This enzyme requires iron and dithiothreitol for activation <i>in vitro</i>, and is a predicted 4Fe-4S protein. Escherichia coli Pseudomonas aeruginosa have two copies of this protein [<cite idref="PUB00016056"/>, <cite idref="PUB00077265"/>, [<cite idref="PUB00016056"/>].</p>
@@ -1937,7 +1937,7 @@ diseases [<cite idref="PUB00001481"/>, <cite idref="PUB00002780"/>].</p>
     <taxon_data name="Cyanobacteria" proteins_count="2"/>
   </taxonomy_distribution>
 </interpro>
-<interpro id="IPR004977" protein_count="3306" short_name="Ribosomal_S25" type="family">
+<interpro id="IPR004977" protein_count="3306" short_name="Ribosomal_S25" type="Family">
   <name>Ribosomal protein S25</name>
   <abstract>
 <p>Ribosomes are the particles that catalyse mRNA-directed protein synthesis in all organisms. The codons of the mRNA are exposed on the ribosome to allow tRNA binding. This leads to the incorporation of amino acids into the growing polypeptide chain in accordance with the genetic information. Incoming amino acid monomers enter the ribosomal A site in the form of aminoacyl-tRNAs complexed with elongation factor Tu (EF-Tu) and GTP. The growing polypeptide chain, situated in the P site as peptidyl-tRNA, is then transferred to aminoacyl-tRNA and the new peptidyl-tRNA, extended by one residue, is translocated to the P site with the aid the elongation factor G (EF-G) and GTP as the deacylated tRNA is released from the ribosome through one or more exit sites [<cite idref="PUB00007068"/>, <cite idref="PUB00007069"/>].  About 2/3 of the mass of the ribosome consists of RNA and 1/3 of protein. The proteins are named in accordance with the subunit of the ribosome which they belong to - the small (S1 to S31) and the large (L1 to L44). Usually they decorate the rRNA cores of the subunits. </p>
@@ -2069,7 +2069,7 @@ diseases [<cite idref="PUB00001481"/>, <cite idref="PUB00002780"/>].</p>
     <taxon_data name="Metazoa" proteins_count="4"/>
   </taxonomy_distribution>
 </interpro>
-<interpro id="IPR005958" protein_count="2276" short_name="TyrNic_aminoTrfase" type="family">
+<interpro id="IPR005958" protein_count="2276" short_name="TyrNic_aminoTrfase" type="Family">
   <name>Tyrosine/nicotianamine aminotransferase</name>
   <abstract>
 <p>  This subfamily of pyridoxal phosphate-dependent enzymes includes known examples of both tyrosine aminotransferase from animals and nicotianamine aminotransferase from barley. </p>
@@ -2181,7 +2181,7 @@ diseases [<cite idref="PUB00001481"/>, <cite idref="PUB00002780"/>].</p>
     <sec_ac acc="IPR005957"/>
   </sec_list>
 </interpro>
-<interpro id="IPR011224" protein_count="4669" short_name="rRNA_MeTrfase_M" type="family">
+<interpro id="IPR011224" protein_count="4669" short_name="rRNA_MeTrfase_M" type="Family">
   <name>Ribosomal RNA large subunit methyltransferase M</name>
   <abstract>
 <p>This entry represents the ribosomal RNA large subunit methyltransferase M (RlmM), previously known as YdgE. RlmM specifically catalyses the 2'-O-methylation of nucleotide C2498 in the peptidyl transferase loop of 23S rRNA [<cite idref="PUB00053913"/>].</p>
@@ -2241,7 +2241,7 @@ diseases [<cite idref="PUB00001481"/>, <cite idref="PUB00002780"/>].</p>
     <taxon_data name="Archaea" proteins_count="1"/>
   </taxonomy_distribution>
 </interpro>
-<interpro id="IPR011284" protein_count="28314" short_name="3oxo_ACP_reduc" type="family">
+<interpro id="IPR011284" protein_count="28314" short_name="3oxo_ACP_reduc" type="Family">
   <name>3-oxoacyl-(acyl-carrier-protein) reductase</name>
   <abstract>
 <p>This entry represents 3-oxoacyl-[ACP] reductase, also called 3-ketoacyl-acyl carrier protein reductase, an enzyme of fatty acid biosynthesis found in many plant and bacterial species. This enzyme is involved in type II fatty acid biosynthesis, where the individual metabolic transformations are carried out by different enzymes rather than by a single enzyme as occurs in type I fatty acid biosynthesis [<cite idref="PUB00028039"/>]. This family includes Sinorhizobium meliloti NodG, which has been shown to be a 3-oxoacyl-ACP reductase and can play a role in fatty acid synthesis [<cite idref="PUB00083882"/>].</p>
@@ -2459,7 +2459,7 @@ diseases [<cite idref="PUB00001481"/>, <cite idref="PUB00002780"/>].</p>
     <taxon_data name="Bacteria" proteins_count="479"/>
   </taxonomy_distribution>
 </interpro>
-<interpro id="IPR011406" protein_count="10" short_name="Globin_trematode" type="family">
+<interpro id="IPR011406" protein_count="10" short_name="Globin_trematode" type="Family">
   <name>Globin, trematode</name>
   <abstract>
 <p>Globins are haem-containing proteins involved in binding and/or transporting oxygen. They belong to a very large and well studied family that is widely distributed in many organisms [<cite idref="PUB00035866"/>]. Globins have evolved from a common ancestor and can be divided into three groups: single-domain globins, and two types of chimeric globins, flavohaemoglobins and globin-coupled sensors. Bacteria have all three types of globins, while archaea lack flavohaemoglobins, and eukaryotes lack globin-coupled sensors [<cite idref="PUB00035865"/>]. Several functionally different haemoglobins can coexist in the same species. The major types of globins include:</p>
@@ -2652,7 +2652,7 @@ diseases [<cite idref="PUB00001481"/>, <cite idref="PUB00002780"/>].</p>
     <taxon_data name="Metazoa" proteins_count="10"/>
   </taxonomy_distribution>
 </interpro>
-<interpro id="IPR012762" protein_count="4137" short_name="Ubiq_biosynth_COQ9" type="family">
+<interpro id="IPR012762" protein_count="4137" short_name="Ubiq_biosynth_COQ9" type="Family">
   <name>Ubiquinone biosynthesis protein COQ9</name>
   <abstract>
 <p> COQ9 is an protein that is required for the biosynthesis of coenzyme Q [<cite idref="PUB00020857"/>], which functions in the respiratory electron transport chain and serves as a lipophilic antioxidant. In Saccharomyces cerevisiae (Baker's yeast), Q biosynthesis requires nine Coq proteins (Coq1-Coq9), with the COQ9 product acting subsequent to the prenylation of 4-hydroxybenzoic acid. </p>
@@ -2758,7 +2758,7 @@ diseases [<cite idref="PUB00001481"/>, <cite idref="PUB00002780"/>].</p>
     <taxon_data name="Fungi" proteins_count="11"/>
   </taxonomy_distribution>
 </interpro>
-<interpro id="IPR013369" protein_count="8174" short_name="T2SS_GspE" type="family">
+<interpro id="IPR013369" protein_count="8174" short_name="T2SS_GspE" type="Family">
   <name>Type II secretion system GspE</name>
   <abstract>
 <p> GspE, the E protein of the type II secretion system, is also referred to as the main terminal branch of the general secretion pathway. </p>
@@ -2831,7 +2831,7 @@ diseases [<cite idref="PUB00001481"/>, <cite idref="PUB00002780"/>].</p>
     <taxon_data name="Bacteria" proteins_count="10"/>
   </taxonomy_distribution>
 </interpro>
-<interpro id="IPR014155" protein_count="4205" short_name="VirB11" type="family">
+<interpro id="IPR014155" protein_count="4205" short_name="VirB11" type="Family">
   <name>Type IV secretion system protein VirB11</name>
   <abstract>
 <p>This entry contains VirB11, a protein that is found in the vir locus of Agrobacterium Ti plasmids where it is involved in the type IV secretion system for DNA transfer [<cite idref="PUB00012375"/>]. VirB11 is believed to be an ATPase [<cite idref="PUB00034407"/>] and is a homologue of the P-like conjugation system TrbB protein and the Flp pilus system protein TadA [<cite idref="PUB00034408"/>].</p>
@@ -2920,7 +2920,7 @@ diseases [<cite idref="PUB00001481"/>, <cite idref="PUB00002780"/>].</p>
     <taxon_data name="Bacteria" proteins_count="6"/>
   </taxonomy_distribution>
 </interpro>
-<interpro id="IPR014490" protein_count="3507" short_name="Dps-like" type="family">
+<interpro id="IPR014490" protein_count="3507" short_name="Dps-like" type="Family">
   <name>DNA-binding protein from starved cells-like</name>
   <abstract>
 <p>The initial member of this family to be characterised was described as a DNA-binding protein from starved cells-like (Dps-like) protein, from the hyperthermophilic acidophile  Sulfolobus solfataricus [<cite idref="PUB00081827"/>]. The protein was shown to  share high sequence similarity with hypothetical proteins in other archaeal and bacterial genomes, several of which form a monophyletic cluster within the broad superfamily of ferritin-like diiron-carboxylate proteins, which are non-haem iron storage proteins [<cite idref="PUB00016871"/>].</p>
@@ -2989,7 +2989,7 @@ The  S. solfataricus Dps-like protein has been shown to self-assemble into a hol
     <taxon_data name="Bacteria" proteins_count="23"/>
   </taxonomy_distribution>
 </interpro>
-<interpro id="IPR014635" protein_count="2240" short_name="A_amylase_MalS" type="family">
+<interpro id="IPR014635" protein_count="2240" short_name="A_amylase_MalS" type="Family">
   <name>Alpha-amylase, MalS type</name>
   <abstract>
 <p> Alpha-amylase is classified as family 13 of the glycosyl hydrolases and is present in archaea, bacteria, plants and animals. Alpha-amylase is an essential enzyme in alpha-glucan metabolism, acting to catalyse the hydrolysis of alpha-1,4-glucosidic bonds of glycogen, starch and related polysaccharides. Although all alpha-amylases possess the same catalytic function, they can vary with respect to sequence.  In general, they are composed of three domains: a TIM barrel containing the active site residues and chloride ion-binding site (domain A), a long loop region inserted between the third beta strand and the alpha-helix of domain A that contains calcium-binding site(s) (domain B), and a C-terminal beta-sheet domain that appears to show some variability in sequence and length between amylases (domain C) [<cite idref="PUB00027666"/>].  Amylases have at least one conserved calcium-binding site, as calcium is essential for the stability of the enzyme. The chloride-binding functions to activate the enzyme, which acts by a two-step mechanism involving a catalytic nucleophile base (usually an Asp) and a catalytic proton donor (usually a Glu) that are responsible for the formation of the beta-linked glycosyl-enzyme intermediate. </p>
@@ -3049,7 +3049,7 @@ The  S. solfataricus Dps-like protein has been shown to self-assemble into a hol
     <taxon_data name="Bacteria" proteins_count="1"/>
   </taxonomy_distribution>
 </interpro>
-<interpro id="IPR015414" protein_count="23335" short_name="TMEM64" type="family">
+<interpro id="IPR015414" protein_count="23335" short_name="TMEM64" type="Family">
   <name>Transmembrane protein TMEM64</name>
   <abstract>
 <p>This entry contains a group of transmemberane proteins, including TMEM64. The yeast member of this family, Tvp38 (<db_xref db="SWISSPROT" dbkey="P36164"/>), localises with the t-SNARE Tlg2 [<cite idref="PUB00035466"/>]. </p>
@@ -3148,7 +3148,7 @@ The  S. solfataricus Dps-like protein has been shown to self-assemble into a hol
     <taxon_data name="Cyanobacteria" proteins_count="244"/>
   </taxonomy_distribution>
 </interpro>
-<interpro id="IPR016352" protein_count="712" short_name="SLRP_I_decor/aspor/byglycan" type="family">
+<interpro id="IPR016352" protein_count="712" short_name="SLRP_I_decor/aspor/byglycan" type="Family">
   <name>Small leucine-rich proteoglycan, class I, decorin/asporin/byglycan</name>
   <abstract>
 <p>This group represents a family of class I small leucine-rich proteoglycan (SLRPs), including decorin, asporin and byglycan  [<cite idref="PUB00068686"/>]. They bind to multiple receptors and are involved in controlling cell growth, morphogenesis and immunity [<cite idref="PUB00068686"/>]. </p>
@@ -3204,7 +3204,7 @@ The  S. solfataricus Dps-like protein has been shown to self-assemble into a hol
     <sec_ac acc="IPR028549"/>
   </sec_list>
 </interpro>
-<interpro id="IPR017424" protein_count="16" short_name="MAPKKK8" type="family">
+<interpro id="IPR017424" protein_count="16" short_name="MAPKKK8" type="Family">
   <name>Mitogen-activated protein (MAP) kinase kinase kinase 8</name>
   <abstract>
 <p>This entry represents mitogen-activated protein kinase kinase kinase 8 (MAP3K8 or COT or TPL2) (<db_xref db="EC" dbkey="2.7.11.25"/>), which plays a role in the cell cycle. MAP3K8 is required for TLR4 activation of the MEK/ERK pathway. MAP3K8 is able to activate NF-kappa-B 1 (NFKB1) by stimulating proteasome-mediated proteolysis of NF-kappa-B 1/p105 [<cite idref="PUB00044626"/>]. MAP3K8 forms a ternary complex with NFKB1 and TNIP2 [<cite idref="PUB00043127"/>]. MAP3K8 is recruited to the CD40 complex via a mechanism dependent on TRAF-binding sites in CD40 [<cite idref="PUB00044627"/>]. </p>
@@ -3288,7 +3288,7 @@ The  S. solfataricus Dps-like protein has been shown to self-assemble into a hol
     <taxon_data name="Metazoa" proteins_count="16"/>
   </taxonomy_distribution>
 </interpro>
-<interpro id="IPR019500" protein_count="7945" short_name="Pep_S46" type="family">
+<interpro id="IPR019500" protein_count="7945" short_name="Pep_S46" type="Family">
   <name>Peptidase S46</name>
   <abstract>
 <p>Dipeptidyl aminopeptidase BII from Pseudoxanthomonas mexicana is a serine protease classified into clan PA, family S46. It is able to cleave a variety of dipeptides from the amino-terminus of substrate peptides [<cite idref="PUB00075339"/>]. Another characterised member of the S46 family of  dipeptidyl-peptidases from bacteria is dipeptidyl-peptidase 7 (DPP-7) from Porphyromonas gingivalis. It may serve nutritional functions by providing dipeptides to this asaccharolytic bacterium  [<cite idref="PUB00063575"/>].</p>
@@ -3369,7 +3369,7 @@ The  S. solfataricus Dps-like protein has been shown to self-assemble into a hol
     <taxon_data name="Arthropoda" proteins_count="1"/>
   </taxonomy_distribution>
 </interpro>
-<interpro id="IPR022773" protein_count="476" short_name="Siva" type="family">
+<interpro id="IPR022773" protein_count="476" short_name="Siva" type="Family">
   <name>Siva</name>
   <abstract>
 <p> Siva binds to the CD27 cytoplasmic tail. It has a DD homology region, a box-B-like ring finger, and a zinc finger-like domain. Overexpression of Siva in various cell lines induces apoptosis, suggesting an important role for Siva in the CD27-transduced apoptotic pathway [<cite idref="PUB00011475"/>]. Siva-1 binds to and inhibits BCL-X(L)-mediated protection against UV radiation-induced apoptosis. Indeed, the unique amphipathic helical region (SAH) present in Siva-1 is required for its binding to BCL-X(L) and sensitising cells to UV radiation. Natural complexes of Siva-1/BCL-X(L) are detected in HUT78 and murine thymocyte, suggesting a potential role for Siva-1 in regulating T cell homeostasis [<cite idref="PUB00011476"/>].</p>
@@ -3435,7 +3435,7 @@ The  S. solfataricus Dps-like protein has been shown to self-assemble into a hol
     <taxon_data name="Metazoa" proteins_count="5"/>
   </taxonomy_distribution>
 </interpro>
-<interpro id="IPR023612" protein_count="15167" short_name="Peptidase_M4" type="family">
+<interpro id="IPR023612" protein_count="15167" short_name="Peptidase_M4" type="Family">
   <name>Peptidase M4</name>
   <abstract>
 <p>Over 70 metallopeptidase families have been identified to date. In these enzymes a divalent cation which is usually zinc, but may be cobalt, manganese or copper, activates the water molecule. The metal ion is held in place by amino acid ligands, usually three in number. In some families of co-catalytic metallopeptidases, two metal ions are observed in crystal structures ligated by five amino acids, with one amino acid ligating both metal ions.  The known metal ligands are His, Glu, Asp or Lys.  At least one other residue is required for catalysis, which may play an electrophillic role. 
@@ -3676,7 +3676,7 @@ Many metalloproteases contain an HEXXH motif, which has been shown in crystallog
     <taxon_data name="Archaea" proteins_count="2"/>
   </taxonomy_distribution>
 </interpro>
-<interpro id="IPR025961" protein_count="7698" short_name="Metal_resist" type="family">
+<interpro id="IPR025961" protein_count="7698" short_name="Metal_resist" type="Family">
   <name>Heavy-metal resistance protein</name>
   <abstract>
 <p>This is a family of metal-binding proteins which are involved in resistance to heavy-metal ions [<cite idref="PUB00059164"/>, <cite idref="PUB00059165"/>]. These proteins form a four-helix hooked hairpin, consisting of two long alpha helices each flanked by a shorter alpha helix. They bind a metal ion in a type-2 like centre [<cite idref="PUB00051762"/>] and contain two copies of an LTXXQ motif.</p>
@@ -3761,7 +3761,7 @@ Many metalloproteases contain an HEXXH motif, which has been shown in crystallog
     <taxon_data name="Cyanobacteria" proteins_count="4"/>
   </taxonomy_distribution>
 </interpro>
-<interpro id="IPR026113" protein_count="3962" short_name="MeTrfase" type="family">
+<interpro id="IPR026113" protein_count="3962" short_name="MeTrfase" type="Family">
   <name>Methyltransferase-like</name>
   <abstract>
 <p>This is a family of methyltransferase-related proteins that includes among others tRNA N(3)-methylcytidine methyltransferase METTL2, 6 and 8, O-methyltransferase 3 and methyltransferase-like protein Metl. </p> 
@@ -3878,7 +3878,7 @@ Many metalloproteases contain an HEXXH motif, which has been shown in crystallog
     <taxon_data name="Metazoa" proteins_count="3"/>
   </taxonomy_distribution>
 </interpro>
-<interpro id="IPR027022" protein_count="14942" short_name="ABC_permease_BceB-typ" type="family">
+<interpro id="IPR027022" protein_count="14942" short_name="ABC_permease_BceB-typ" type="Family">
   <name>ABC transporter permease protein, BceB-type</name>
   <abstract>
 <p>This family represents the permease component of ABC-type antimicrobial peptide transport systems. BceB is part of the ABC transporter complex BceAB involved in bacitracin export [<cite idref="PUB00062413"/>, <cite idref="PUB00062414"/>]. Another member of this family, YxdM, is the permease component of the ABC transporter complex yxdLM, also involved in peptide resistance [<cite idref="PUB00062417"/>, <cite idref="PUB00062416"/>].</p>
@@ -3942,7 +3942,7 @@ Many metalloproteases contain an HEXXH motif, which has been shown in crystallog
     <taxon_data name="Bacteria" proteins_count="9"/>
   </taxonomy_distribution>
 </interpro>
-<interpro id="IPR027059" protein_count="2840" short_name="Coatomer_dsu" type="family">
+<interpro id="IPR027059" protein_count="2840" short_name="Coatomer_dsu" type="Family">
   <name>Coatomer delta subunit</name>
   <abstract>
 <p>This entry represents the delta subunit of the coatomer complex, which is involved in the regulation of intracellular protein trafficking between the endoplasmic reticulum and the Golgi complex [<cite idref="PUB00008596"/>].</p>
@@ -4074,7 +4074,7 @@ Many metalloproteases contain an HEXXH motif, which has been shown in crystallog
     <taxon_data name="Metazoa" proteins_count="2"/>
   </taxonomy_distribution>
 </interpro>
-<interpro id="IPR039756" protein_count="2305" short_name="Lsb6/PI4K2" type="family">
+<interpro id="IPR039756" protein_count="2305" short_name="Lsb6/PI4K2" type="Family">
   <name>Type II phosphatidylinositol 4-kinase Lsb6/PI4K2</name>
   <abstract>
 <p>This entry represents a group of type II phosphatidylinositol 4-kinases, including Lsb6 from yeasts and PI4K2alpha/beta from animals [<cite idref="PUB00090059"/>, <cite idref="PUB00090060"/>, <cite idref="PUB00090061"/>]. PI4K2alpha catalyzes the phosphorylation of phosphatidylinositol (PI) to phosphatidylinositol 4-phosphate (PI4P), a lipid that plays important roles in endocytosis, Golgi function, protein sorting and membrane trafficking and is required for prolonged survival of neurons.  The structure of PI4K2alpha has been revealed [<cite idref="PUB00090062"/>, <cite idref="PUB00090063"/>].</p>
@@ -4179,7 +4179,7 @@ Many metalloproteases contain an HEXXH motif, which has been shown in crystallog
     <taxon_data name="Metazoa" proteins_count="1"/>
   </taxonomy_distribution>
 </interpro>
-<interpro id="IPR039761" protein_count="6465" short_name="Bms1/Tsr1" type="family">
+<interpro id="IPR039761" protein_count="6465" short_name="Bms1/Tsr1" type="Family">
   <name>Ribosome biogenesis protein Bms1/Tsr1</name>
   <abstract>
 <p>Bms1p and Tsr1p represent a new family of factors required for ribosome
@@ -4309,7 +4309,7 @@ to the cytosol [<cite idref="PUB00013952"/>, <cite idref="PUB00072547"/>, <cite 
     <taxon_data name="Metazoa" proteins_count="4"/>
   </taxonomy_distribution>
 </interpro>
-<interpro id="IPR039787" protein_count="2051" short_name="ENDOU" type="family">
+<interpro id="IPR039787" protein_count="2051" short_name="ENDOU" type="Family">
   <name>Poly(U)-specific endoribonuclease</name>
   <abstract>
 <p>The founding member of this family, XendoU, is a uridylate-specific, divalent cation-dependent enzyme that produces molecules with 2',3'-cyclic phosphate ends [<cite idref="PUB00086627"/>, <cite idref="PUB00039850"/>]. The human Endou, known as PP11,  has endoribonuclease activity with placental tissue specificity [<cite idref="PUB00086626"/>, <cite idref="PUB00086628"/>].</p>
@@ -4428,7 +4428,7 @@ to the cytosol [<cite idref="PUB00013952"/>, <cite idref="PUB00072547"/>, <cite 
     <taxon_data name="Cyanobacteria" proteins_count="7"/>
   </taxonomy_distribution>
 </interpro>
-<interpro id="IPR039790" protein_count="1125" short_name="CHORD_protein" type="family">
+<interpro id="IPR039790" protein_count="1125" short_name="CHORD_protein" type="Family">
   <name>CHORD domain containing protein</name>
   <abstract>
 <p>This entry contains proteins with a CHORD (cysteine- and histidine-rich) domain.  CHORDs are 60-amino acid modules that bind two zinc ions. They are usually arranged in tandem and are found in all tested eukaryotes, with the exception of yeast, where they are involved in processes ranging from pressure sensing in the heart to maintenance of diploidy in fungi, and exhibit distinct protein-protein interaction specificity. Six cysteine and two histidine residues are invariant within the CHORD domain. Three other residues are also invariant and some positions are confined to positive, negative, or aromatic amino acids [<cite idref="PUB00008722"/>, <cite idref="PUB00052587"/>]. </p>
@@ -4508,7 +4508,7 @@ to the cytosol [<cite idref="PUB00013952"/>, <cite idref="PUB00072547"/>, <cite 
     <taxon_data name="Metazoa" proteins_count="4"/>
   </taxonomy_distribution>
 </interpro>
-<interpro id="IPR042416" protein_count="991" short_name="OSTC" type="family">
+<interpro id="IPR042416" protein_count="991" short_name="OSTC" type="Family">
   <name>Oligosaccharyltransferase complex subunit OSTC</name>
   <abstract>
 The oligosaccharyltransferase complex catalyzes the transfer of oligosaccharide from a dolichol pyrophosphate donor en bloc onto a free asparagine residue of a newly synthesized nascent chain during the translocation in the endoplasmic reticulum lumen. OSTC, also known as DC2, is a oligosaccharyltransferase (OST) complex subunit. Together with KCP2, DC2 regulates the gamma-secretase-directed processing of amyloid precursor protein (APP) [<cite idref="PUB00092965"/>].

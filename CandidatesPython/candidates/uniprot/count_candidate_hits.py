@@ -4,6 +4,7 @@ InterPro id and save the result to a file.  Ask the API to return only one fasta
 we want is in the header regardless of how many results are returned.
 """
 import concurrent.futures
+import sys
 import candidates.utils as utils
 import logging
 logger = logging.getLogger(__name__)
@@ -101,18 +102,23 @@ def collect_batch_of_hit_counts(params: tuple) -> dict:
         # Only report as thread 1 progresses
         if count % 5 == 0 and thread_id == 1:
             logger.info(f'Thread {thread_id} has collected {count} out of {len(id_list)} {status} items')
-        result_dict[ipr] = get_count(ipr, reviewed)
+        result_dict[ipr] = get_count(ipr, reviewed, thread_id)
     if thread_id == 1:
         logger.info(f'Thread {thread_id} has finished collecting {count} out of {len(id_list)} {status} items')
     return result_dict
 
 
-def get_count(ip: str, isreviewed: bool):
+def get_count(ip: str, isreviewed: bool, thread_id=1):
     baseurl = 'https://www.ebi.ac.uk/proteins/api/proteins/InterPro:{0}?offset=0&size=1&reviewed='.format(ip)
     if isreviewed:
         url = baseurl + 'true'
     else:
         url = baseurl + 'false'
     headers = {"Accept": "text/x-fasta"}
-    r = utils.get_url_with_retry(url, headers)
+    try:
+        r = utils.get_url_with_retry(url, headers, thread_id)
+    except Exception as e:
+        logger.error(str(e))
+        logger.error('Giving up analysis.')
+        sys.exit(0)
     return int(r.headers['x-pagination-totalrecords'])

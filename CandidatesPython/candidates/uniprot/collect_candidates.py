@@ -127,7 +127,7 @@ def collect_batch_of_candidates(input_data: tuple) -> dict:
         if thread_id == 1 and count % 5 == 0:
             logger.info(f'Thread {thread_id} collected data for {count} candidate signatures')
         # this gets a single json object containing several uniprot records
-        jsonrecords = get_reviewed_uniprot_jsons_from_interpro_id(signature)
+        jsonrecords = get_reviewed_uniprot_jsons_from_interpro_id(signature, thread_id)
         # update the reviewed count in case there is an update in the database
         reviewed = len(jsonrecords)
         updated_key = f'{signature}\t{reviewed}\t{unreviewed}'
@@ -147,10 +147,16 @@ def collect_batch_of_candidates(input_data: tuple) -> dict:
 
 # Result is a json object containing several records
 # Errors are handled by the get_url_with_retry method
-def get_reviewed_uniprot_jsons_from_interpro_id(interpro: str) -> json:
+# Default thread_id of 1 in case called on main thread
+def get_reviewed_uniprot_jsons_from_interpro_id(interpro: str, thread_id=1) -> json:
     url = 'https://www.ebi.ac.uk/proteins/api/proteins/InterPro:{0}?offset=0&size=-1&reviewed=true'.format(interpro)
     headers = {"Accept": "application/json"}
-    r = utils.get_url_with_retry(url, headers)
+    try:
+        r = utils.get_url_with_retry(url, headers, thread_id)
+    except Exception as e:
+        logger.error(str(e))
+        logger.error('Giving up analysis.')
+        sys.exit(0)
     return json.loads(r.text)
 
 

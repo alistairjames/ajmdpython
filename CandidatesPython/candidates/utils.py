@@ -34,17 +34,20 @@ def fileline_filter(filename, text):
     outfile.close()
 
 
-def get_url_with_retry(url, headers):
+# Use default thread_id of 1 for methods that run on main thread
+# Requests has its own retry system which should really be used here instead
+def get_url_with_retry(url, headers, thread_id=1):
+    max_tries = 5
     tries = 1
     r = None
     try:
         r = requests.get(url, headers=headers)
     except:
-        logger.error(f'requests.get first attempt failed for {url}')
+        logger.error(f'Request failed on thread {thread_id}. Try {tries}/{max_tries} for {url}')
     if r is not None and r.ok:
         return r
     else:
-        while r is None or (not r.ok and tries < 6):
+        while tries <= max_tries:
             tries += 1
             time.sleep(tries * 2)
             try:
@@ -53,9 +56,10 @@ def get_url_with_retry(url, headers):
                 logger.error(f'requests.get retry {tries} failed for {url}')
             if r is not None and r.ok:
                 return r
+    if r is not None:
         r.raise_for_status()
-        logger.error(f'Failed to collect UniProt record data after {tries} attempts. Giving up analysis.')
-        sys.exit()
+    # Throw an exception if this method failed to access the data
+    raise Exception('Completely failed to access ' + url)
 
 
 # Calculate number of threads (t) to use for list length of n
