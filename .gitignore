@@ -1,7 +1,10 @@
 # Pycharm files
 .idea/
-output/
 logs/
+
+# Specific project folders
+output/
+
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
