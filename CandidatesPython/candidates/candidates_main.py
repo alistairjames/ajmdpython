@@ -50,7 +50,7 @@ def run_analysis(timestamp, start_time, interpro_path, unirule_path):
     outfile_path = os.sep.join([data_path, 'output', 'CandidateRules_{0}.tsv'.format(timestamp)])
     uniprotcollector.collect_candidates_with_threads(candidates_filtered_path, outfile_path)
     logger.info('Analysis completed. Elapsed time: ' + utils.get_elapsed_time(start_time))
-    logger.info('Intermediate and final data saved to: {0}/{1}/output/'.format(os.getcwd(), {data_path}))
+    logger.info('Intermediate and final data saved to: {0}/{1}/output/'.format(os.getcwd(), data_path))
     logger.info('Final data for candidates is in file: CandidateRules_{0}.tsv'.format(timestamp))
 
 
