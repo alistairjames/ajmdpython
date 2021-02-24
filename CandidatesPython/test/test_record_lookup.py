@@ -1,6 +1,7 @@
-import candidates.uniprot.collect_candidates as collector
 import time
 from unittest.mock import Mock
+
+import candidates.uniprot.collect_candidates as collector
 
 
 # Mock ?
@@ -10,7 +11,6 @@ def test_get_reviewed_jsonrecords_for_signature():
 
 
 def test_get_uniprot_url_with_retry():
-    import requests
     requests = Mock()
     tries = 1
     url = 'url'

@@ -11,21 +11,21 @@ logger = logging.getLogger(__name__)
 
 
 def collect_counts_main_thread(input_list: list, min_rev, min_unrev, output_filepath):
-    logger.info(f'Collecting reviewed and unreviewed count data from {len(input_list)} InterPro ids'
-                ' without using threads')
+    logger.info('Collecting reviewed and unreviewed count data from {0} InterPro ids'
+                ' without using threads'.format(len(input_list)))
     outfile = open(output_filepath, 'w')
     count = 0
     for ip in input_list:
         count += 1
         if count % 20 == 0:
-            logger.info(f'Collected reviewed and unreviewed counts for {count} signatures')
+            logger.info('Collected reviewed and unreviewed counts for {0} signatures'.format(count))
             outfile.flush()
         reviewedcount = get_count(ip, True)
         if reviewedcount >= min_rev:
             unreviewedcount = get_count(ip, False)
             if unreviewedcount >= min_unrev:
                 outfile.write('{0}\t{1}\t{2}\n'.format(ip, reviewedcount, unreviewedcount))
-    logger.info(f'Collected reviewed and unreviewed counts for {count} signatures')
+    logger.info('Collected reviewed and unreviewed counts for {0} signatures'.format(count))
     outfile.close()
 
 
@@ -39,16 +39,18 @@ def collect_counts(input_list_path, min_rev, min_unrev, output_filepath):
         collect_counts_main_thread(interpro_list, min_rev, min_unrev, output_filepath)
         return
     else:
-        logger.info(f'Collecting reviewed hits from {len(interpro_list)} InterPro ids using {thread_count} threads')
+        logger.info('Collecting reviewed hits from {0} InterPro ids using {1} threads'.format(
+                                                                                len(interpro_list), thread_count))
 
     # Get reviewed hit counts (Get hit counts needs a string true / false not a boolean
     parameters = get_hitcount_parameters_for_executor_map(thread_count, interpro_list, True)
     reviewed_results_dict = get_hit_counts_with_threads(parameters)
     filtered_interpro_list = [x for x in reviewed_results_dict if reviewed_results_dict[x] >= 10]
 
-    # Recalcuculate the threads needed for this list and set the parameters for collecting unreviewed data
+    # Recalculate the threads needed for this list and set the parameters for collecting unreviewed data
     thread_count = utils.calculate_thread_count(len(filtered_interpro_list))
-    logger.info(f'Collecting unreviewed hits from {len(filtered_interpro_list)} InterPro ids using {thread_count} threads')
+    logger.info('Collecting unreviewed hits from {0} InterPro ids using {1} threads'.format(
+                                                                          len(filtered_interpro_list), thread_count))
     parameters = get_hitcount_parameters_for_executor_map(thread_count, filtered_interpro_list, False)
     unreviewed_results_dict = get_hit_counts_with_threads(parameters)
 
@@ -63,8 +65,8 @@ def collect_counts(input_list_path, min_rev, min_unrev, output_filepath):
     for t in final_interpro_hits_list:
         outfile.write('{0}\t{1}\t{2}\n'.format(t[0], t[1], t[2]))
     outfile.close()
-    logger.info(f'Collected reviewed and unreviewed counts for {len(final_interpro_hits_list)} '
-                f'signatures using {thread_count} threads')
+    logger.info('Collected reviewed and unreviewed counts for {0} signatures using {1} threads'.format(
+                                                                         len(final_interpro_hits_list), thread_count))
 
 
 def get_hitcount_parameters_for_executor_map(threads: int, id_list: list, reviewed: bool) -> list:
@@ -101,10 +103,12 @@ def collect_batch_of_hit_counts(params: tuple) -> dict:
         count += 1
         # Only report as thread 1 progresses
         if count % 5 == 0 and thread_id == 1:
-            logger.info(f'Thread {thread_id} has collected {count} out of {len(id_list)} {status} items')
+            logger.info('Thread {0} has collected {1} out of {2} {3} items'.format(
+                                                                          thread_id, count, len(id_list), status))
         result_dict[ipr] = get_count(ipr, reviewed, thread_id)
     if thread_id == 1:
-        logger.info(f'Thread {thread_id} has finished collecting {count} out of {len(id_list)} {status} items')
+        logger.info('Thread {0} has finished collecting {1} out of {2} {3} items'.format(
+                                                                            thread_id, count, len(id_list), status))
     return result_dict
 
 

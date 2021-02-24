@@ -1,6 +1,5 @@
 
 from lxml import etree
-import candidates.unirule as unirule
 import candidates.utils as utils
 import logging
 logger = logging.getLogger(__name__)
@@ -30,7 +29,7 @@ def create_interproid_to_memberid_map(xmlfilepath, outfilepath):
             del interpro.getparent()[0]
 
     outfile.close()
-    logger.info(f'Mapping for {record_count} InterProId to MemberId saved to {outfilepath}')
+    logger.info('Mapping for {0} InterProId to MemberId saved to {1}'.format(record_count, outfilepath))
 
 
 def create_interproid_to_type_map(xmlfilepath, outfilepath):
@@ -57,7 +56,7 @@ def create_interproid_to_type_map(xmlfilepath, outfilepath):
             del interpro.getparent()[0]
 
     outfile.close()
-    logger.info(f'Mapping for {record_count} InterProId to Type saved to {outfilepath}')
+    logger.info('Mapping for {0} InterProId to Type saved to {1}'.format(record_count, outfilepath))
 
 
 def get_family_nochild_interpro(xmlfilepath, outfilepath):
@@ -87,7 +86,7 @@ def get_family_nochild_interpro(xmlfilepath, outfilepath):
             del interpro.getparent()[0]
 
     outfile.close()
-    logger.info(f'Found {record_count} InterPro records with no children and no Hamap or PIR members')
+    logger.info('Found {0} InterPro records with no children and no Hamap or PIR members'.format(record_count))
 
     """
     Combine three different files to create a list of InterPro Families that
@@ -113,7 +112,8 @@ def create_interpro_candidate_list(ipr_to_member_filepath, unirule_used_path,
     outfile.write('\n'.join(filtered_candidates))
     outfile.close()
 
-    logger.info(f'{len(filtered_candidates)} candidates remaining after filtering {len(ip_candidate_list)} for used signatures')
+    logger.info('{0} candidates remaining after filtering {1} for used signatures'.format(
+                                                                  len(filtered_candidates), len(ip_candidate_list)))
 
 
 # Used only by create_interpro_candidate_list

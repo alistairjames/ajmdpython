@@ -49,7 +49,7 @@ fi
 for dir in data/demo/output data/main/input data/main/output test/testdata/output
   do if [ ! -d $dir ]
      then
-       mkdir $dir
+       mkdir -p $dir
      fi
 done
 

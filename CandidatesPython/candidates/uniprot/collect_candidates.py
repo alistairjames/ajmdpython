@@ -44,7 +44,7 @@ excluded_keywords = ['Complete proteome', ]
 
 def collect_candidates_on_main_thread(signature_with_counts_list: list, outfilepath: str):
     n = len(signature_with_counts_list)
-    logger.info(f'Starting to collect candidate rules from {n} InterPro signatures on main thread')
+    logger.info('Starting to collect candidate rules from {0} InterPro signatures on main thread'.format(n))
 
     outfile = open(outfilepath, 'w')
     outfile.write('# Columns: TaxonomicGroup / AnnotationCode / Total / Consistent / AnnotationText\n')
@@ -53,7 +53,7 @@ def collect_candidates_on_main_thread(signature_with_counts_list: list, outfilep
         signature, reviewed, unreviewed = signature_line.split('\t')
         count += 1
         if count % 20 == 0:
-            logger.info(f'Data collected for {count} candidate signatures')
+            logger.info('Data collected for {0} candidate signatures'.format(count))
         # this gets a single json object containing several uniprot records
         jsonrecords = get_reviewed_uniprot_jsons_from_interpro_id(signature)
         # update the reviewed count read in to signature_with_counts_list from infilepath
@@ -67,7 +67,7 @@ def collect_candidates_on_main_thread(signature_with_counts_list: list, outfilep
             get_taxonomy_annotation_collection(taxon, consistent_annotations, outfile)
 
     outfile.close()
-    logger.info(f'Data collected for {count} candidate signatures')
+    logger.info('Data collected for {0} candidate signatures'.format(count))
 
 
 def collect_candidates_with_threads(infile_path: str, outfile_path: str):
@@ -78,7 +78,7 @@ def collect_candidates_with_threads(infile_path: str, outfile_path: str):
         collect_candidates_on_main_thread(sig_with_counts_strings, outfile_path)
         return
     else:
-        logger.info(f'Collecting data for {list_length} InterPro candidates using {thread_count} threads')
+        logger.info('Collecting data for {0} InterPro candidates using {1} threads'.format(list_length, thread_count))
 
     params = get_candidate_parameters_for_executor_map(thread_count, sig_with_counts_strings)
     with concurrent.futures.ThreadPoolExecutor(max_workers=len(params)) as executor:
@@ -98,11 +98,11 @@ def collect_candidates_with_threads(infile_path: str, outfile_path: str):
     # May as well sort on the keys!
     for key in sorted(all_results_dict):
         interpro, reviewed, unreviewed = key.split('\t')
-        text = f'\n# {interpro}  Reviewed:  {reviewed}  Unreviewed:  {unreviewed}\n'
+        text = '\n# {0}  Reviewed:  {1}  Unreviewed:  {2}\n'.format(interpro, reviewed, unreviewed)
         outfile.write(text)
         outfile.write('\n'.join(all_results_dict[key]) + '\n')
     outfile.close()
-    logger.info(f'Collected candidate data for {len(all_results_dict)} candidate signatures')
+    logger.info('Collected candidate data for {0} candidate signatures'.format(len(all_results_dict)))
 
 
 # string_list is list of (InterProId \t rev \t unrev)
@@ -118,19 +118,19 @@ def get_candidate_parameters_for_executor_map(threads: int, string_list: list) -
 def collect_batch_of_candidates(input_data: tuple) -> dict:
     thread_id, interpro_data_list = input_data
     if thread_id == 1:
-        logger.info(f'Thread {thread_id} has started collecting {len(interpro_data_list)} candidates')
+        logger.info('Thread {0} has started collecting {1} candidates'.format(thread_id, len(interpro_data_list)))
     result_dict = {}
     count = 0
     for data in interpro_data_list:
         signature, reviewed, unreviewed = data.split('\t')
         count += 1
         if thread_id == 1 and count % 5 == 0:
-            logger.info(f'Thread {thread_id} collected data for {count} candidate signatures')
+            logger.info('Thread {0} collected data for {1} candidate signatures'.format(thread_id, count))
         # this gets a single json object containing several uniprot records
         jsonrecords = get_reviewed_uniprot_jsons_from_interpro_id(signature, thread_id)
         # update the reviewed count in case there is an update in the database
         reviewed = len(jsonrecords)
-        updated_key = f'{signature}\t{reviewed}\t{unreviewed}'
+        updated_key = '{0}\t{1}\t{2}'.format(signature, reviewed, unreviewed)
         all_tax_data = []
         taxonomy_groups = group_records_by_taxonomy_from_json(jsonrecords)
         for taxon in taxonomy_groups:
@@ -140,8 +140,8 @@ def collect_batch_of_candidates(input_data: tuple) -> dict:
             all_tax_data.extend(candidate_data)
         result_dict[updated_key] = all_tax_data
     if thread_id == 1:
-        logger.info(f'Thread {thread_id} has finished collecting data for {count} candidates '
-                                                           f'out of {len(interpro_data_list)}')
+        logger.info('Thread {0} has finished collecting data for {1} candidates '
+                        'out of {2}'.format(thread_id, count, len(interpro_data_list)))
     return result_dict
 
 
@@ -197,7 +197,7 @@ def extract_annotations(record_json):
         try:
             collect_comments(record, record_json['comments'])
         except:
-            logger.error(f"Failed extracting Comments from {record_json['accession']}")
+            logger.error('Failed extracting Comments from {0}'.format(record_json['accession']))
             traceback.print_exc(file=sys.stdout)
             sys.exit(0)
 

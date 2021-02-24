@@ -40,7 +40,7 @@ def collect_used_signatures(rules_xml_filepath, outfilepath):
     for s in sorted(allsigset):
         outfile.write(s + '\n')
     outfile.close()
-    logger.info(f'{len(allsigset)} signatures already used in rules saved to {outfilepath}')
+    logger.info('{0} signatures already used in rules saved to {1}'.format(len(allsigset), outfilepath))
 
 
 

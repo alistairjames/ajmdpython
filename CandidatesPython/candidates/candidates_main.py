@@ -19,15 +19,15 @@ def run_analysis(timestamp, start_time, interpro_path, unirule_path):
     logger.info('Starting main analysis run')
 
     # Map InterProId to member signatures
-    interpro_2_member_path = os.sep.join([data_path, 'output', f'InterProId_MemberId_{timestamp}.tsv'])
+    interpro_2_member_path = os.sep.join([data_path, 'output', 'InterProId_MemberId_{0}.tsv'.format(timestamp)])
     interpro.create_interproid_to_memberid_map(interpro_path, interpro_2_member_path)
 
     # Map InterProId to InterPro type (Family, Domain, etc)
-    interpro_2_type_path = os.sep.join([data_path, 'output', f'InterProId_Type_{timestamp}.tsv'])
+    interpro_2_type_path = os.sep.join([data_path, 'output', 'InterProId_Type_{0}.tsv'.format(timestamp)])
     interpro.create_interproid_to_type_map(interpro_path, interpro_2_type_path)
 
     # Extract InterPro families that do not contain other families as subsets
-    interpro_nochild_path = os.sep.join([data_path, 'output', f'InterPro_nochild_nohamap_nopir_{timestamp}.list'])
+    interpro_nochild_path = os.sep.join([data_path, 'output', 'InterPro_nochild_nohamap_nopir_{0}.list'.format(timestamp)])
     interpro.get_family_nochild_interpro(interpro_path, interpro_nochild_path)
 
     # Extract the list of used signatures from the unifire xml file unirule-urml-latest.xml
@@ -35,29 +35,29 @@ def run_analysis(timestamp, start_time, interpro_path, unirule_path):
     unirule.collect_used_signatures(unirule_path, used_signatures_outpath)
 
     # Filter the extracted InterPro families to remove any that contain signatures already used in rules
-    prelim_candidates_path = os.sep.join([data_path, 'output', f'Prelim_Candidates_{timestamp}.list'])
+    prelim_candidates_path = os.sep.join([data_path, 'output', 'Prelim_Candidates_{0}.list'.format(timestamp)])
     interpro.create_interpro_candidate_list(interpro_2_member_path, used_signatures_outpath,
                                             interpro_nochild_path, prelim_candidates_path)
 
     # Filter the preliminary candidate signatures based on the number of UniProt reviewed and unreviewed hits.
     min_reviewed = 10
     min_unreviewed = 100
-    candidates_filtered_path = os.sep.join([data_path, 'output', f'CandidatesFilteredByHits_{timestamp}.tsv'])
+    candidates_filtered_path = os.sep.join([data_path, 'output', 'CandidatesFilteredByHits_{0}.tsv'.format(timestamp)])
     uniprotcounter.collect_counts(prelim_candidates_path, min_reviewed, min_unreviewed, candidates_filtered_path)
-    logger.info(f'ElapsedTime: {utils.get_elapsed_time(start_time)}')
+    logger.info('ElapsedTime: ' + utils.get_elapsed_time(start_time))
 
     # Look up the reviewed records for the remaining families and collect those with consistent annotation
-    outfile_path = os.sep.join([data_path, 'output', f'CandidateRules_{timestamp}.tsv'])
+    outfile_path = os.sep.join([data_path, 'output', 'CandidateRules_{0}.tsv'.format(timestamp)])
     uniprotcollector.collect_candidates_with_threads(candidates_filtered_path, outfile_path)
-    logger.info(f'Analysis completed. Elapsed time: {utils.get_elapsed_time(start_time)}')
-    logger.info(f'Intermediate and final data saved to: {os.getcwd()}/{data_path}/output/')
-    logger.info(f'Final data for candidates is in file: CandidateRules_{timestamp}.tsv')
+    logger.info('Analysis completed. Elapsed time: ' + utils.get_elapsed_time(start_time))
+    logger.info('Intermediate and final data saved to: {0}/{1}/output/'.format(os.getcwd(), {data_path}))
+    logger.info('Final data for candidates is in file: CandidateRules_{0}.tsv'.format(timestamp))
 
 
 def logger_setup(timestamp):
     logger.setLevel(logging.DEBUG)
     ch = logging.StreamHandler()
-    logpath = os.sep.join(['logs', f'log_{timestamp}.txt'])
+    logpath = os.sep.join(['logs', 'log_{0}.txt'.format(timestamp)])
     fh = logging.FileHandler(logpath, 'w')
     ch.setLevel(logging.INFO)
     fh.setLevel(logging.INFO)
@@ -67,15 +67,15 @@ def logger_setup(timestamp):
     fh.setFormatter(log_format)
     logger.addHandler(ch)
     logger.addHandler(fh)
-    logger.info(f'File path for the log is {logpath}')
+    logger.info('File path for the log is ' + logpath)
 
 
 def check_input_data_exists(interpro_path, unirule_path):
     if os.path.isfile(interpro_path) and os.path.isfile(unirule_path):
-        logger.info(f'Input data found: {interpro_path} and {unirule_path}')
+        logger.info('Input data found: {0} and {1}'.format(interpro_path, unirule_path))
         return True
     else:
-        logger.critical(f'Missing input data: {interpro_path} or {unirule_path}')
+        logger.critical('Missing input data: {0} or {1}'.format(interpro_path, unirule_path))
         return False
 
 

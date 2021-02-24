@@ -1,6 +1,6 @@
 import candidates.uniprot.collect_candidates as collector
 import json
-data_in = 'testdata/input'
+data_in = 'testdata/input/'
 
 # # Mock ?
 # test_list = ['Q4WF30', 'Q9BTE0', 'Q9HX72', 'Q9USR6', 'Q3UG98',
@@ -12,7 +12,7 @@ data_in = 'testdata/input'
 
 
 def test_extract_annotations1():
-    with open(f'{data_in}/P12345.json') as f:
+    with open(data_in + 'P12345.json') as f:
         json_data = json.load(f)
     rec = collector.extract_annotations(json_data)
     assert rec['accession'] == 'P12345'
@@ -30,7 +30,7 @@ def test_extract_annotations1():
 
 
 def test_extract_annotations2():
-    with open(f'{data_in}/P36186.json') as f:
+    with open(data_in + 'P36186.json') as f:
         json_data = json.load(f)
     record = collector.extract_annotations(json_data)
     assert 'Carbohydrate biosynthesis; gluconeogenesis' in record['CCPA']
@@ -39,28 +39,28 @@ def test_extract_annotations2():
 
 
 def test_cofactor_json_format():
-    with open(f'{data_in}/Q99V37.json') as f:
+    with open(data_in + 'Q99V37.json') as f:
         json_data = json.load(f)
     record = collector.extract_annotations(json_data)
     assert len(record['CCCO']) == 4
 
 
 def test_subcellular_location_json_format():
-    with open(f'{data_in}/P61769.json') as f:
+    with open(data_in + 'P61769.json') as f:
         json_data = json.load(f)
     record = collector.extract_annotations(json_data)
     assert len(record['CCLO']) == 4
 
 
 def test_group_by_taxonomy():
-    with open(f'{data_in}/IPR038987.json') as f:
+    with open(data_in + 'IPR038987.json') as f:
         json_data = json.load(f)
     taxonomy_groups = collector.group_records_by_taxonomy_from_json(json_data)
     assert len(taxonomy_groups['Eukaryota Metazoa']) == 5
 
 
 def test_cofactor_text_comment():
-    with open(f'{data_in}/P0A431.json') as f:
+    with open(data_in + 'P0A431.json') as f:
         json_data = json.load(f)
     record = collector.extract_annotations(json_data)
     assert record['CCCO'][0] == 'PSII binds multiple chlorophylls, carotenoids and specific lipids'
